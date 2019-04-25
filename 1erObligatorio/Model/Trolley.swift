@@ -18,18 +18,24 @@ class Trolley {
         self.selectedItems.append(item)
     }
     
-    func findItemAt(id:Int) -> SelectedItem? {
+    func findItemAt(id:Int) -> Int? {
         
-        for (let i=0; i<selectedItems.count; i++) {
-            if (self.selectedItems[i].
+        for i in 0...selectedItems.count {
+            if(selectedItems[i].item.id == id){
+                return i
+            }
         }
         return nil
     }
     
     func modifyItem(id: Int, quantity: Int){
-        if let selItem = self.findItem(id: id) {
-            if(quantity == 0){
-                self.selectedItems.remo
+        if let selItemAt = self.findItemAt(id: id) {
+            if (quantity <= 0){
+                self.selectedItems.remove(at: selItemAt)
+            }
+            else{
+                self.selectedItems[selItemAt].quantity = quantity
+            }
         }
     }
 }
