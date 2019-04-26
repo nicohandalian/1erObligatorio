@@ -55,6 +55,7 @@
 			isa = PBXGroup;
 			children = (
 				03DD5B0A22713CBE0044570F /* 1erObligatorio */,
+				03DD5B0922713CBE0044570F /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,7 +65,6 @@
 				03DD5B0822713CBE0044570F /* 1erObligatorio.app */,
 			);
 			name = Products;
-			path = ../..;
 			sourceTree = "<group>";
 		};
 		03DD5B0A22713CBE0044570F /* 1erObligatorio */ = {
@@ -81,7 +81,6 @@
 		03DD5B1D22713CEF0044570F /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				03DD5B0922713CBE0044570F /* Products */,
 				03DD5B2122713D880044570F /* Item.swift */,
 				03DD5B2522713F910044570F /* Banner.swift */,
 				03DD5B272271402D0044570F /* SelectedItem.swift */,
