@@ -26,10 +26,10 @@
             </objects>
             <point key="canvasLocation" x="-1400" y="68"/>
         </scene>
-        <!--View Controller-->
+        <!--Index View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="_erObligatorio" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="IndexViewController" customModule="_erObligatorio" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="834" height="1194"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -83,7 +83,7 @@
                     <navigationItem key="navigationItem" id="Qm3-tj-eLo">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="SQy-Q4-kWt">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="7b8-CA-jIR">
-                                <rect key="frame" x="-23" y="-15" width="78" height="22"/>
+                                <rect key="frame" x="736" y="14" width="78" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" image="icon-cart"/>
                             </button>
@@ -94,10 +94,10 @@
             </objects>
             <point key="canvasLocation" x="-510.14492753623193" y="67.633928571428569"/>
         </scene>
-        <!--View Controller-->
+        <!--Checkout View Controller-->
         <scene sceneID="I7h-8W-Job">
             <objects>
-                <viewController id="Ale-SJ-91z" sceneMemberID="viewController">
+                <viewController id="Ale-SJ-91z" customClass="CheckoutViewController" customModule="_erObligatorio" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4PA-FW-N8a">
                         <rect key="frame" x="0.0" y="0.0" width="834" height="1194"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
