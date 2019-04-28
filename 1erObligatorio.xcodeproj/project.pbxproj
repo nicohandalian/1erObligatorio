@@ -72,6 +72,7 @@
 		03DD5B0A22713CBE0044570F /* 1erObligatorio */ = {
 			isa = PBXGroup;
 			children = (
+				03DD5B1722713CBE0044570F /* Info.plist */,
 				03DD5B2022713D440044570F /* SupportedFiles */,
 				03DD5B1F22713D050044570F /* Controller */,
 				03DD5B1E22713CFF0044570F /* View */,
@@ -117,7 +118,6 @@
 			children = (
 				03DD5B0B22713CBE0044570F /* AppDelegate.swift */,
 				03DD5B1222713CBE0044570F /* Assets.xcassets */,
-				03DD5B1722713CBE0044570F /* Info.plist */,
 				03DD5B2322713E390044570F /* ItemType.swift */,
 			);
 			path = SupportedFiles;
