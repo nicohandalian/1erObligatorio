@@ -34,10 +34,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FiO-PE-dUb">
-                                <rect key="frame" x="10" y="64" width="355" height="150"/>
-                                <color key="backgroundColor" red="0.0" green="0.56284224989999998" blue="0.31881666180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </scrollView>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="RoK-Xz-enb">
                                 <rect key="frame" x="0.0" y="244" width="375" height="56"/>
                                 <color key="barTintColor" red="0.0048598507420000003" green="0.096086271109999996" blue="0.57499289509999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -58,25 +54,77 @@
                                 </prototypes>
                             </tableView>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="O0q-sb-U6U">
-                                <rect key="frame" x="168" y="214" width="39" height="37"/>
-                                <color key="pageIndicatorTintColor" red="1" green="0.47479242599999999" blue="0.0014138489790000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="displayP3"/>
+                                <rect key="frame" x="168" y="207" width="39" height="37"/>
+                                <color key="pageIndicatorTintColor" red="0.0048598507420000003" green="0.096086271109999996" blue="0.57499289509999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </pageControl>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="I1o-Oo-OUV">
+                                <rect key="frame" x="0.0" y="78" width="375" height="129"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="004-YE-Qmq">
+                                    <size key="itemSize" width="286" height="126"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="BannerCell" id="Xpq-S9-Jqk" customClass="BannerCollectionViewCell" customModule="_erObligatorio" customModuleProvider="target">
+                                        <rect key="frame" x="44.5" y="0.0" width="286" height="126"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="286" height="126"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TD0-rl-PlP">
+                                                    <rect key="frame" x="0.0" y="0.0" width="286" height="126"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tD2-t2-ckv">
+                                                    <rect key="frame" x="10" y="68" width="286" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="zpA-sC-2eU"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XNj-v4-bdK">
+                                                    <rect key="frame" x="10" y="95" width="286" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="tD2-t2-ckv" secondAttribute="bottom" constant="37" id="1gr-ba-Uhx"/>
+                                            <constraint firstItem="XNj-v4-bdK" firstAttribute="width" secondItem="tD2-t2-ckv" secondAttribute="width" id="6hg-hF-ial"/>
+                                            <constraint firstItem="XNj-v4-bdK" firstAttribute="centerX" secondItem="tD2-t2-ckv" secondAttribute="centerX" id="8xq-tJ-kLB"/>
+                                            <constraint firstAttribute="bottom" secondItem="XNj-v4-bdK" secondAttribute="bottom" constant="10" id="MGY-B7-4vX"/>
+                                            <constraint firstItem="tD2-t2-ckv" firstAttribute="width" secondItem="Xpq-S9-Jqk" secondAttribute="width" id="XSn-qS-xpQ"/>
+                                            <constraint firstItem="TD0-rl-PlP" firstAttribute="centerX" secondItem="Xpq-S9-Jqk" secondAttribute="centerX" id="a2m-EQ-i76"/>
+                                            <constraint firstItem="TD0-rl-PlP" firstAttribute="centerY" secondItem="Xpq-S9-Jqk" secondAttribute="centerY" id="c7B-Up-c5R"/>
+                                            <constraint firstItem="TD0-rl-PlP" firstAttribute="height" secondItem="Xpq-S9-Jqk" secondAttribute="height" id="tib-LT-dNy"/>
+                                            <constraint firstItem="tD2-t2-ckv" firstAttribute="leading" secondItem="Xpq-S9-Jqk" secondAttribute="leading" constant="10" id="vB6-Um-9av"/>
+                                            <constraint firstItem="TD0-rl-PlP" firstAttribute="width" secondItem="Xpq-S9-Jqk" secondAttribute="width" id="wfQ-6V-USe"/>
+                                        </constraints>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="O0q-sb-U6U" firstAttribute="bottom" secondItem="RoK-Xz-enb" secondAttribute="top" id="0NJ-ss-oSX"/>
                             <constraint firstItem="RoK-Xz-enb" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="3Ne-vS-vqK"/>
                             <constraint firstItem="mWq-Tf-7sE" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="8Xo-Y3-BsQ"/>
                             <constraint firstItem="mWq-Tf-7sE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="E6L-Mc-OTj"/>
                             <constraint firstItem="RoK-Xz-enb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Hjm-mT-Doh"/>
-                            <constraint firstItem="FiO-PE-dUb" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="KtN-M0-rmH"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="FiO-PE-dUb" secondAttribute="trailing" constant="10" id="Uae-bl-fXn"/>
+                            <constraint firstItem="I1o-Oo-OUV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="LLS-lJ-krH"/>
+                            <constraint firstItem="O0q-sb-U6U" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="SSt-jO-4Vk"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="I1o-Oo-OUV" secondAttribute="trailing" id="WG4-dI-c6e"/>
+                            <constraint firstItem="I1o-Oo-OUV" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="14" id="a7K-dQ-Nkj"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="mWq-Tf-7sE" secondAttribute="bottom" id="aFh-gU-Og6"/>
-                            <constraint firstItem="O0q-sb-U6U" firstAttribute="centerX" secondItem="FiO-PE-dUb" secondAttribute="centerX" id="cGt-j8-rxt"/>
-                            <constraint firstItem="FiO-PE-dUb" firstAttribute="bottom" secondItem="RoK-Xz-enb" secondAttribute="top" constant="-30" id="h6x-uz-Z57"/>
-                            <constraint firstItem="FiO-PE-dUb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="jcx-aX-gSX"/>
+                            <constraint firstItem="I1o-Oo-OUV" firstAttribute="bottom" secondItem="O0q-sb-U6U" secondAttribute="top" id="len-JI-uKu"/>
                             <constraint firstItem="mWq-Tf-7sE" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.55" id="q7f-X8-oyd"/>
                             <constraint firstItem="mWq-Tf-7sE" firstAttribute="top" secondItem="RoK-Xz-enb" secondAttribute="bottom" id="sLK-hE-Z8k"/>
-                            <constraint firstItem="O0q-sb-U6U" firstAttribute="top" secondItem="FiO-PE-dUb" secondAttribute="bottom" id="wPg-dC-OHP"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -92,7 +140,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-510.14492753623193" y="67.633928571428569"/>
+            <point key="canvasLocation" x="-511.19999999999999" y="67.016491754122939"/>
         </scene>
         <!--Checkout View Controller-->
         <scene sceneID="I7h-8W-Job">

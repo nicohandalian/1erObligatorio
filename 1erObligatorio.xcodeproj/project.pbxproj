@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		03CBCC4922752D4700D090DB /* BannerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CBCC4822752D4700D090DB /* BannerCollectionViewCell.swift */; };
 		03DD5B0C22713CBE0044570F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DD5B0B22713CBE0044570F /* AppDelegate.swift */; };
 		03DD5B0E22713CBE0044570F /* MainNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DD5B0D22713CBE0044570F /* MainNavigationViewController.swift */; };
 		03DD5B1122713CBE0044570F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03DD5B0F22713CBE0044570F /* Main.storyboard */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		03CBCC4822752D4700D090DB /* BannerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCollectionViewCell.swift; sourceTree = "<group>"; };
 		03DD5B0822713CBE0044570F /* 1erObligatorio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 1erObligatorio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03DD5B0B22713CBE0044570F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		03DD5B0D22713CBE0044570F /* MainNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationViewController.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 				03F35D8B227275CA00518847 /* DataModelManager.swift */,
 				03F35D9322728F7700518847 /* IndexViewController.swift */,
 				03F35D9522728F8900518847 /* CheckoutViewController.swift */,
+				03CBCC4822752D4700D090DB /* BannerCollectionViewCell.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -192,6 +195,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				03DD5B2222713D880044570F /* Item.swift in Sources */,
+				03CBCC4922752D4700D090DB /* BannerCollectionViewCell.swift in Sources */,
 				03DD5B0E22713CBE0044570F /* MainNavigationViewController.swift in Sources */,
 				03F35D9422728F7700518847 /* IndexViewController.swift in Sources */,
 				03DD5B2622713F910044570F /* Banner.swift in Sources */,
