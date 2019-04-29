@@ -15,6 +15,7 @@ class DataModelManager {
     private init() {
         
     }
+    
     static func getItems()->[Item] {
         
         let grapefruitSmallImage = UIImage(named: "Grapefruit")!
