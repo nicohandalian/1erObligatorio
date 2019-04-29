@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		03087A072277B80000370537 /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03087A062277B80000370537 /* ItemTableViewCell.swift */; };
 		03CBCC4922752D4700D090DB /* BannerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CBCC4822752D4700D090DB /* BannerCollectionViewCell.swift */; };
 		03DD5B0C22713CBE0044570F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DD5B0B22713CBE0044570F /* AppDelegate.swift */; };
 		03DD5B0E22713CBE0044570F /* MainNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DD5B0D22713CBE0044570F /* MainNavigationViewController.swift */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		03087A062277B80000370537 /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
 		03CBCC4822752D4700D090DB /* BannerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCollectionViewCell.swift; sourceTree = "<group>"; };
 		03DD5B0822713CBE0044570F /* 1erObligatorio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 1erObligatorio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03DD5B0B22713CBE0044570F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -53,6 +55,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		03087A082277B88600370537 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				03087A062277B80000370537 /* ItemTableViewCell.swift */,
+				03CBCC4822752D4700D090DB /* BannerCollectionViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		03DD5AFF22713CBD0044570F = {
 			isa = PBXGroup;
 			children = (
@@ -74,14 +85,14 @@
 			children = (
 				03DD5B1722713CBE0044570F /* Info.plist */,
 				03DD5B2022713D440044570F /* SupportedFiles */,
-				03DD5B1F22713D050044570F /* Controller */,
-				03DD5B1E22713CFF0044570F /* View */,
-				03DD5B1D22713CEF0044570F /* Model */,
+				03DD5B1F22713D050044570F /* Controllers */,
+				03DD5B1E22713CFF0044570F /* Views */,
+				03DD5B1D22713CEF0044570F /* Models */,
 			);
 			path = 1erObligatorio;
 			sourceTree = "<group>";
 		};
-		03DD5B1D22713CEF0044570F /* Model */ = {
+		03DD5B1D22713CEF0044570F /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				03DD5B2122713D880044570F /* Item.swift */,
@@ -89,28 +100,28 @@
 				03DD5B272271402D0044570F /* SelectedItem.swift */,
 				03DD5B29227140920044570F /* Trolley.swift */,
 			);
-			path = Model;
+			path = Models;
 			sourceTree = "<group>";
 		};
-		03DD5B1E22713CFF0044570F /* View */ = {
+		03DD5B1E22713CFF0044570F /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				03DD5B0F22713CBE0044570F /* Main.storyboard */,
 				03DD5B1422713CBE0044570F /* LaunchScreen.storyboard */,
 			);
-			path = View;
+			path = Views;
 			sourceTree = "<group>";
 		};
-		03DD5B1F22713D050044570F /* Controller */ = {
+		03DD5B1F22713D050044570F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				03087A082277B88600370537 /* Cells */,
 				03DD5B0D22713CBE0044570F /* MainNavigationViewController.swift */,
 				03F35D8B227275CA00518847 /* DataModelManager.swift */,
 				03F35D9322728F7700518847 /* IndexViewController.swift */,
 				03F35D9522728F8900518847 /* CheckoutViewController.swift */,
-				03CBCC4822752D4700D090DB /* BannerCollectionViewCell.swift */,
 			);
-			path = Controller;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		03DD5B2022713D440044570F /* SupportedFiles */ = {
@@ -198,6 +209,7 @@
 				03CBCC4922752D4700D090DB /* BannerCollectionViewCell.swift in Sources */,
 				03DD5B0E22713CBE0044570F /* MainNavigationViewController.swift in Sources */,
 				03F35D9422728F7700518847 /* IndexViewController.swift in Sources */,
+				03087A072277B80000370537 /* ItemTableViewCell.swift in Sources */,
 				03DD5B2622713F910044570F /* Banner.swift in Sources */,
 				03DD5B282271402D0044570F /* SelectedItem.swift in Sources */,
 				03DD5B2422713E390044570F /* ItemType.swift in Sources */,

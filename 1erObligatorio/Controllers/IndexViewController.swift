@@ -9,14 +9,22 @@
 import Foundation
 import UIKit
 
-class IndexViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class IndexViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource,UITableViewDataSource, UITableViewDelegate {
+    
     
     @IBOutlet weak var bannersCollectionView: UICollectionView!
+    @IBOutlet weak var itemsTableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     let banners = DataModelManager.getBanners()
+    let items = DataModelManager.getItems()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+       
+        itemsTableView.dataSource = self
+        itemsTableView.delegate = self
+        
         bannersCollectionView.dataSource = self
         bannersCollectionView.delegate = self
     }
@@ -37,6 +45,19 @@ class IndexViewController: UIViewController, UICollectionViewDelegate, UICollect
     }
     
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return items.count
+    }
     
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = itemsTableView.dequeueReusableCell(withIdentifier: "ItemCell") as? ItemTableViewCell else{
+            return UITableViewCell()
+        }
+        cell.itemImageView.image = items[indexPath.row].smallImage
+        cell.nameLabel.text = items[indexPath.row].name
+        cell.priceLabel.text = "$" + items[indexPath.row].price.description
+        
+        return cell
+    }
     
 }
