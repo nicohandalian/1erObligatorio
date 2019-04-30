@@ -79,17 +79,47 @@
                                                     <rect key="frame" x="334" y="47.666666666666664" width="30" height="29.999999999999993"/>
                                                     <state key="normal" title="Add"/>
                                                 </button>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fsm-tS-lEd" userLabel="QuantityView">
+                                                    <rect key="frame" x="318" y="44" width="62" height="37"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0KK-7k-Jru">
+                                                            <rect key="frame" x="25.666666666666686" y="8" width="11" height="21"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" red="1" green="0.47479242599999999" blue="0.0014138489790000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <constraints>
+                                                        <constraint firstItem="0KK-7k-Jru" firstAttribute="centerX" secondItem="Fsm-tS-lEd" secondAttribute="centerX" id="Lkb-3w-T54"/>
+                                                        <constraint firstItem="0KK-7k-Jru" firstAttribute="centerY" secondItem="Fsm-tS-lEd" secondAttribute="centerY" id="TaD-Ri-NPl"/>
+                                                        <constraint firstItem="0KK-7k-Jru" firstAttribute="bottom" secondItem="Fsm-tS-lEd" secondAttribute="bottomMargin" id="xhe-BN-B3F"/>
+                                                    </constraints>
+                                                </view>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ArN-bd-Bl8">
+                                                    <rect key="frame" x="328" y="51" width="8" height="22"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" image="icon-minus"/>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gV1-Ig-m7J">
+                                                    <rect key="frame" x="365" y="51" width="12" height="22"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" image="icon-plus"/>
+                                                </button>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="Fsm-tS-lEd" firstAttribute="centerX" secondItem="dtR-h0-CUX" secondAttribute="centerX" id="5kV-ep-A88"/>
                                                 <constraint firstItem="gCO-xd-WWi" firstAttribute="leading" secondItem="WhP-fV-kP4" secondAttribute="trailing" constant="10" id="7gC-KO-zYA"/>
                                                 <constraint firstItem="WhP-fV-kP4" firstAttribute="top" secondItem="D8z-qR-JOG" secondAttribute="topMargin" constant="10" id="9kI-4Q-zf3"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="niB-eV-wbY" secondAttribute="trailing" constant="20" symbolic="YES" id="ALQ-jz-kKk"/>
                                                 <constraint firstItem="dtR-h0-CUX" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="WhP-fV-kP4" secondAttribute="trailing" constant="8" symbolic="YES" id="F4k-7w-n7M"/>
+                                                <constraint firstItem="Fsm-tS-lEd" firstAttribute="centerY" secondItem="D8z-qR-JOG" secondAttribute="centerY" id="Tp7-sr-X0w"/>
                                                 <constraint firstItem="niB-eV-wbY" firstAttribute="leading" secondItem="gCO-xd-WWi" secondAttribute="leading" id="XRm-Rd-Bcb"/>
                                                 <constraint firstItem="WhP-fV-kP4" firstAttribute="leading" secondItem="D8z-qR-JOG" secondAttribute="leadingMargin" constant="10" id="b50-N5-cC0"/>
                                                 <constraint firstItem="niB-eV-wbY" firstAttribute="bottom" secondItem="WhP-fV-kP4" secondAttribute="bottom" id="eYb-3a-msW"/>
                                                 <constraint firstItem="gCO-xd-WWi" firstAttribute="top" secondItem="WhP-fV-kP4" secondAttribute="top" id="htG-bF-JJF"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="WhP-fV-kP4" secondAttribute="bottom" constant="10" id="jgf-ys-wPI"/>
+                                                <constraint firstAttribute="trailing" secondItem="Fsm-tS-lEd" secondAttribute="trailing" constant="34" id="nRt-yl-YxK"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="gCO-xd-WWi" secondAttribute="trailing" constant="20" symbolic="YES" id="smj-xs-iD3"/>
                                                 <constraint firstItem="dtR-h0-CUX" firstAttribute="centerY" secondItem="WhP-fV-kP4" secondAttribute="centerY" id="z4b-Kp-84e"/>
                                             </constraints>
@@ -266,10 +296,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="apJ-FA-oRx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="624.609375" y="67.642752562225468"/>
+            <point key="canvasLocation" x="478" y="68"/>
         </scene>
     </scenes>
     <resources>
         <image name="icon-cart" width="24" height="21"/>
+        <image name="icon-minus" width="8" height="3"/>
+        <image name="icon-plus" width="12" height="12"/>
     </resources>
 </document>
