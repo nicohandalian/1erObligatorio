@@ -13,7 +13,6 @@ class DataModelManager {
     static let dataModelManager = DataModelManager()
     
     private init() {
-        
     }
     
     static func getItems()->[Item] {
@@ -61,6 +60,10 @@ class DataModelManager {
         
         let banners:[Banner] = [bananaBanner, grapefruitBanner, cucumberBanner, kiwiBanner]
         return banners
+    }
+    
+    static func getTrolley()->Trolley{
+        return Trolley()
     }
     
 }

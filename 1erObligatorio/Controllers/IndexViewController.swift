@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class IndexViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource,UITableViewDataSource, UITableViewDelegate {
+class IndexViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource,UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
     
     
     @IBOutlet weak var bannersCollectionView: UICollectionView!
@@ -18,15 +18,31 @@ class IndexViewController: UIViewController, UICollectionViewDelegate, UICollect
     
     let banners = DataModelManager.getBanners()
     let items = DataModelManager.getItems()
+    var trolley = DataModelManager.getTrolley()
+    var currentItems = [Item]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        
+        currentItems = items
+        
         itemsTableView.dataSource = self
         itemsTableView.delegate = self
         
+        searchBar.delegate = self
+
         bannersCollectionView.dataSource = self
         bannersCollectionView.delegate = self
+        
+        alterLayout()
+        
+    }
+    
+    func alterLayout() {
+        itemsTableView.tableHeaderView = UIView()
+        itemsTableView.estimatedSectionHeaderHeight = 50
+        searchBar.showsScopeBar = false
+        searchBar.placeholder = "Search item by Name"
     }
     
     
@@ -46,18 +62,52 @@ class IndexViewController: UIViewController, UICollectionViewDelegate, UICollect
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.count
+        return currentItems.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = itemsTableView.dequeueReusableCell(withIdentifier: "ItemCell") as? ItemTableViewCell else{
             return UITableViewCell()
         }
-        cell.itemImageView.image = items[indexPath.row].smallImage
-        cell.nameLabel.text = items[indexPath.row].name
-        cell.priceLabel.text = "$" + items[indexPath.row].price.description
+        let item = currentItems[indexPath.row]
+        
+        cell.itemImageView.image = item.smallImage
+        cell.nameLabel.text = item.name
+        cell.priceLabel.text = "$" + item.price.description
+        
+//        guard let i = trolley.findItemAt(id: item.id) else{
+//
+//            return cell
+//        }
         
         return cell
     }
     
+    func tableView(_ tabl2eView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 150
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return searchBar
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String){
+        guard !searchText.isEmpty else {
+            currentItems = items
+            itemsTableView.reloadData()
+            return
+        }
+        
+        currentItems = items.filter({ item->Bool in
+            return item.name.lowercased().contains(searchText.lowercased())
+        })
+
+        itemsTableView.reloadData()
+    }
+    
 }
+

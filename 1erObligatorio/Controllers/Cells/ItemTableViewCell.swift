@@ -17,6 +17,7 @@ class ItemTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        self.itemImageView.setRounded()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -24,5 +25,13 @@ class ItemTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+}
 
+
+extension UIImageView {
+    
+    func setRounded() {
+        self.layer.cornerRadius = self.frame.width/2
+        self.layer.masksToBounds = true
+    }
 }
