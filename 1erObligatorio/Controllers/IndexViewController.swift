@@ -16,6 +16,11 @@ class IndexViewController: UIViewController, UICollectionViewDelegate, UICollect
     @IBOutlet weak var itemsTableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
+    @IBAction func checkoutButton(_ sender: Any) {
+        let checkoutNavigationController = storyboard?.instantiateViewController(withIdentifier: "CheckoutViewController") as! CheckoutViewController
+        present(checkoutNavigationController, animated: true, completion: nil)
+    }
+    
     let banners = DataModelManager.getBanners()
     let items = DataModelManager.getItems()
     var trolley = DataModelManager.getTrolley()

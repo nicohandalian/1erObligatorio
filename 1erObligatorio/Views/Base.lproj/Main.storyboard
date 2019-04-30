@@ -13,7 +13,7 @@
         <!--Main Navigation View Controller-->
         <scene sceneID="yo3-9L-dns">
             <objects>
-                <navigationController id="MEO-Hh-ffy" customClass="MainNavigationViewController" customModule="_erObligatorio" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="MainNavigationViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="MEO-Hh-ffy" customClass="MainNavigationViewController" customModule="_erObligatorio" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="17E-JG-NdV">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -29,7 +29,7 @@
         <!--Index View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="IndexViewController" customModule="_erObligatorio" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="IndexViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="IndexViewController" customModule="_erObligatorio" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -183,11 +183,15 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="Qm3-tj-eLo">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="SQy-Q4-kWt">
+                        <barButtonItem key="rightBarButtonItem" id="SQy-Q4-kWt">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="7b8-CA-jIR">
                                 <rect key="frame" x="370" y="11" width="24" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="icon-cart"/>
+                                <connections>
+                                    <action selector="checkoutButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="if9-Rv-S3C"/>
+                                    <segue destination="Ale-SJ-91z" kind="show" id="hOp-Qb-FGy"/>
+                                </connections>
                             </button>
                         </barButtonItem>
                     </navigationItem>
@@ -204,13 +208,13 @@
         <!--Checkout View Controller-->
         <scene sceneID="I7h-8W-Job">
             <objects>
-                <viewController id="Ale-SJ-91z" customClass="CheckoutViewController" customModule="_erObligatorio" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CheckoutViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Ale-SJ-91z" customClass="CheckoutViewController" customModule="_erObligatorio" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4PA-FW-N8a">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="98B-kj-nSy">
-                                <rect key="frame" x="0.0" y="49" width="414" height="692"/>
+                                <rect key="frame" x="0.0" y="93" width="414" height="648"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="jDA-9G-38d">
