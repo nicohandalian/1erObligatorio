@@ -9,33 +9,29 @@
 import Foundation
 
 class Trolley {
-    var selectedItems: [SelectedItem] = []
+    var selectedItems: [Int: SelectedItem] = [:]
     
     init() {
     }
     
-    func addItem(item:SelectedItem) {
-        self.selectedItems.append(item)
+    func addItem(selItem:SelectedItem) {
+        self.selectedItems[selItem.item.id] = selItem
     }
     
-    func findItemAt(id:Int) -> Int? {
-        
-        for i in 0...selectedItems.count {
-            if(selectedItems[i].item.id == id){
-                return i
-            }
-        }
-        return nil
+    func findItemQuantity(id:Int) -> Int? {
+        return self.selectedItems[id]?.quantity
     }
     
     func modifyItem(id: Int, quantity: Int){
-        if let selItemAt = self.findItemAt(id: id) {
-            if (quantity <= 0){
-                self.selectedItems.remove(at: selItemAt)
-            }
-            else{
-                self.selectedItems[selItemAt].quantity = quantity
-            }
+        if (quantity <= 0){
+            self.selectedItems.removeValue(forKey: id)
         }
+        else{
+            self.selectedItems[id]!.quantity = quantity
+        }
+    }
+    
+    func clear(){
+        self.selectedItems = [:]
     }
 }

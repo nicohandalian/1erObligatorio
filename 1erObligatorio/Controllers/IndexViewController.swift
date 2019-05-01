@@ -16,14 +16,9 @@ class IndexViewController: UIViewController, UICollectionViewDelegate, UICollect
     @IBOutlet weak var itemsTableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
-    @IBAction func checkoutButton(_ sender: Any) {
-        let checkoutNavigationController = storyboard?.instantiateViewController(withIdentifier: "CheckoutViewController") as! CheckoutViewController
-        present(checkoutNavigationController, animated: true, completion: nil)
-    }
-    
     let banners = DataModelManager.getBanners()
     let items = DataModelManager.getItems()
-    var trolley = DataModelManager.getTrolley()
+
     var currentItems = [Item]()
     
     override func viewDidLoad() {
@@ -35,7 +30,7 @@ class IndexViewController: UIViewController, UICollectionViewDelegate, UICollect
         itemsTableView.delegate = self
         
         searchBar.delegate = self
-
+        
         bannersCollectionView.dataSource = self
         bannersCollectionView.delegate = self
         
@@ -76,14 +71,7 @@ class IndexViewController: UIViewController, UICollectionViewDelegate, UICollect
         }
         let item = currentItems[indexPath.row]
         
-        cell.itemImageView.image = item.smallImage
-        cell.nameLabel.text = item.name
-        cell.priceLabel.text = "$" + item.price.description
-        
-//        guard let i = trolley.findItemAt(id: item.id) else{
-//
-//            return cell
-//        }
+        cell.setItem(item: item)
         
         return cell
     }
@@ -110,9 +98,18 @@ class IndexViewController: UIViewController, UICollectionViewDelegate, UICollect
         currentItems = items.filter({ item->Bool in
             return item.name.lowercased().contains(searchText.lowercased())
         })
-
+        
         itemsTableView.reloadData()
     }
+    
+    @IBAction func checkoutButton(_ sender: Any) {
+        let checkoutNavigationController = storyboard?.instantiateViewController(withIdentifier: "CheckoutViewController") as! CheckoutViewController
+        present(checkoutNavigationController, animated: true, completion: nil)
+    }
+    
+    
+    
+    
     
 }
 

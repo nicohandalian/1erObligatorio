@@ -78,34 +78,45 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dtR-h0-CUX">
                                                     <rect key="frame" x="334" y="47.666666666666664" width="30" height="29.999999999999993"/>
                                                     <state key="normal" title="Add"/>
+                                                    <connections>
+                                                        <action selector="addButtonPressed:" destination="RXR-gh-je9" eventType="touchUpInside" id="fEI-fy-HZA"/>
+                                                    </connections>
                                                 </button>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fsm-tS-lEd" userLabel="QuantityView">
                                                     <rect key="frame" x="318" y="44" width="62" height="37"/>
                                                     <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ArN-bd-Bl8" userLabel="Minus Button">
+                                                            <rect key="frame" x="4" y="7.3333333333333357" width="8" height="22"/>
+                                                            <state key="normal" image="icon-minus"/>
+                                                            <connections>
+                                                                <action selector="minusButtonPressed:" destination="RXR-gh-je9" eventType="touchUpInside" id="eLl-dc-FAf"/>
+                                                            </connections>
+                                                        </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0KK-7k-Jru">
                                                             <rect key="frame" x="25.666666666666686" y="8" width="11" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gV1-Ig-m7J" userLabel="Plus Button">
+                                                            <rect key="frame" x="46" y="7.3333333333333357" width="12" height="22"/>
+                                                            <state key="normal" image="icon-plus"/>
+                                                            <connections>
+                                                                <action selector="plusButtonPressed:" destination="RXR-gh-je9" eventType="touchUpInside" id="eXP-ck-NRD"/>
+                                                            </connections>
+                                                        </button>
                                                     </subviews>
                                                     <color key="backgroundColor" red="1" green="0.47479242599999999" blue="0.0014138489790000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="gV1-Ig-m7J" secondAttribute="trailing" constant="4" id="3Bg-z3-DQN"/>
+                                                        <constraint firstItem="gV1-Ig-m7J" firstAttribute="centerY" secondItem="Fsm-tS-lEd" secondAttribute="centerY" id="5M4-ul-zEk"/>
+                                                        <constraint firstItem="ArN-bd-Bl8" firstAttribute="centerY" secondItem="Fsm-tS-lEd" secondAttribute="centerY" id="6dI-PL-WAC"/>
                                                         <constraint firstItem="0KK-7k-Jru" firstAttribute="centerX" secondItem="Fsm-tS-lEd" secondAttribute="centerX" id="Lkb-3w-T54"/>
                                                         <constraint firstItem="0KK-7k-Jru" firstAttribute="centerY" secondItem="Fsm-tS-lEd" secondAttribute="centerY" id="TaD-Ri-NPl"/>
+                                                        <constraint firstItem="ArN-bd-Bl8" firstAttribute="leading" secondItem="Fsm-tS-lEd" secondAttribute="leading" constant="4" id="mFo-6p-kWu"/>
                                                         <constraint firstItem="0KK-7k-Jru" firstAttribute="bottom" secondItem="Fsm-tS-lEd" secondAttribute="bottomMargin" id="xhe-BN-B3F"/>
                                                     </constraints>
                                                 </view>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ArN-bd-Bl8">
-                                                    <rect key="frame" x="328" y="51" width="8" height="22"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" image="icon-minus"/>
-                                                </button>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gV1-Ig-m7J">
-                                                    <rect key="frame" x="365" y="51" width="12" height="22"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" image="icon-plus"/>
-                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="Fsm-tS-lEd" firstAttribute="centerX" secondItem="dtR-h0-CUX" secondAttribute="centerX" id="5kV-ep-A88"/>
@@ -128,9 +139,12 @@
                                             <constraint firstAttribute="trailing" secondItem="dtR-h0-CUX" secondAttribute="trailing" constant="50" id="FIQ-Df-Kon"/>
                                         </constraints>
                                         <connections>
+                                            <outlet property="addButton" destination="dtR-h0-CUX" id="D5i-8O-2hL"/>
                                             <outlet property="itemImageView" destination="WhP-fV-kP4" id="L8N-Rm-QT3"/>
                                             <outlet property="nameLabel" destination="gCO-xd-WWi" id="Wc9-Nk-xIc"/>
                                             <outlet property="priceLabel" destination="niB-eV-wbY" id="Qkq-h2-kjw"/>
+                                            <outlet property="quantityLabel" destination="0KK-7k-Jru" id="kZI-ol-MxL"/>
+                                            <outlet property="quantityView" destination="Fsm-tS-lEd" id="ijo-qF-6ME"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

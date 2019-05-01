@@ -11,6 +11,7 @@ import UIKit
 
 class DataModelManager {
     static let dataModelManager = DataModelManager()
+    static let trolley = Trolley()
     
     private init() {
     }
@@ -63,7 +64,7 @@ class DataModelManager {
     }
     
     static func getTrolley()->Trolley{
-        return Trolley()
+        return trolley
     }
     
 }
