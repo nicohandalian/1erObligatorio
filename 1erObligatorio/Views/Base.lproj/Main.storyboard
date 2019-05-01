@@ -283,6 +283,10 @@
                                     <constraint firstAttribute="height" constant="40" id="vAx-CM-1fD"/>
                                 </constraints>
                                 <state key="normal" title="Checkout"/>
+                                <connections>
+                                    <action selector="checkouButtonPressed:" destination="Ale-SJ-91z" eventType="touchUpInside" id="v8b-eS-yUo"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="5BF-yO-WDY"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0I7-Dn-rcx">
                                 <rect key="frame" x="342" y="771" width="45" height="21"/>
@@ -318,4 +322,7 @@
         <image name="icon-minus" width="8" height="3"/>
         <image name="icon-plus" width="12" height="12"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="LKH-qu-qjx"/>
+    </inferredMetricsTieBreakers>
 </document>

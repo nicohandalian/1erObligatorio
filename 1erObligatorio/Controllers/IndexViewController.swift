@@ -107,9 +107,5 @@ class IndexViewController: UIViewController, UICollectionViewDelegate, UICollect
         present(checkoutNavigationController, animated: true, completion: nil)
     }
     
-    
-    
-    
-    
 }
 
