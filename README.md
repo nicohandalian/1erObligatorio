@@ -17,3 +17,8 @@ Contiene:
 ● Un listado de artículos.
 
 Por defecto todas las celdas del listado tendrán el botón de "Add" visible. Si hay una o más unidades seleccionadas del mismo artículo, se ocultará el botón y se regulará la cantidad de unidades con los botones de "+" y "-
+
+
+2) Pantalla de checkout
+
+En ella se podrán visualizar los elementos que se encuentran en el carrito de compras antes de confirmarlo. Si no hay elementos en el carrito el botón de checkout debe estar deshabilitado. Es importante que independientemente del dispositivo donde se corra la aplicación siempre debe haber dos items por fila. Si el usuario toca un item se debe desplegar un picker donde puede modificar la cantidad de unidades. Una vez que el usuario presiona "Checkout" deberá desplegarse un alert que le indique al usuario que la compra fue realizada exitosamente, navegar a la pantalla principal y vaciar el carrito de compras.
