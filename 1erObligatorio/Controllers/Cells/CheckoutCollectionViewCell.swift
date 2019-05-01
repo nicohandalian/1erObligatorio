@@ -24,6 +24,11 @@ class CheckoutCollectionViewCell: UICollectionViewCell {
         self.nameLabel.text = selectedItem.item.name
         self.priceLabel.text = "$" + selectedItem.item.price.description
         self.unitsLabel.text = String(selectedItem.quantity) + " units"
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.tapGesture))
+        self.itemImageView.addGestureRecognizer(tapGesture)
+    }
+    @objc func tapGesture(){
+        
     }
 
 }

@@ -21,6 +21,7 @@ class CheckoutViewController: UIViewController {
         checkoutCollectionView.dataSource = self
         checkoutCollectionView.delegate = self
         totalPriceLabel.text = "$" + String(trolley.getTotalPrice())
+        
     }
     
     func indexHandler(alert: UIAlertAction!){
@@ -29,6 +30,8 @@ class CheckoutViewController: UIViewController {
         present(indexNavigationController, animated: true, completion: nil)
         
     }
+    
+    
     
     @IBAction func checkoutButtonPressed(_ sender: Any) {
         trolley.clear()
