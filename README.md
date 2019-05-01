@@ -4,6 +4,8 @@ El objetivo del obligatorio es desarrollar parte de una aplicación de iOS que s
 
 Consta de dos pantallas:
 
+
+
 1) Pantalla principal
 
 Contiene:
@@ -17,6 +19,7 @@ Contiene:
 ● Un listado de artículos.
 
 Por defecto todas las celdas del listado tendrán el botón de "Add" visible. Si hay una o más unidades seleccionadas del mismo artículo, se ocultará el botón y se regulará la cantidad de unidades con los botones de "+" y "-
+
 
 
 2) Pantalla de checkout
