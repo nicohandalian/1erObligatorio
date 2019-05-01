@@ -4,7 +4,7 @@ El objetivo del obligatorio es desarrollar parte de una aplicación de iOS que s
 
 Consta de dos pantallas:
 
-##1) Pantalla principal
+1) Pantalla principal
 
 Contiene:
 
@@ -19,7 +19,7 @@ Contiene:
 Por defecto todas las celdas del listado tendrán el botón de "Add" visible. Si hay una o más unidades seleccionadas del mismo artículo, se ocultará el botón y se regulará la cantidad de unidades con los botones de "+" y "-
 
 
-##2) Pantalla de checkout
+2) Pantalla de checkout
 
 En ella se podrán visualizar los elementos que se encuentran en el carrito de compras antes de confirmarlo. Si no hay elementos en el carrito el botón de checkout debe estar deshabilitado. 
 
