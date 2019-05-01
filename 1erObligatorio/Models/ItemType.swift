@@ -9,7 +9,7 @@
 import Foundation
 
 enum ItemType: String {
-    case fruit = "fruit"
-    case veggie = "veggie"
+    case fruit = "Fruit"
+    case veggie = "Veggie"
 }
 

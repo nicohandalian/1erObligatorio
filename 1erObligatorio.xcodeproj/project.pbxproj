@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		03087A072277B80000370537 /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03087A062277B80000370537 /* ItemTableViewCell.swift */; };
+		031FE50F227A4F27000A464A /* CheckoutTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031FE50E227A4F27000A464A /* CheckoutTableViewCell.swift */; };
 		03CBCC4922752D4700D090DB /* BannerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CBCC4822752D4700D090DB /* BannerCollectionViewCell.swift */; };
 		03DD5B0C22713CBE0044570F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DD5B0B22713CBE0044570F /* AppDelegate.swift */; };
 		03DD5B0E22713CBE0044570F /* MainNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DD5B0D22713CBE0044570F /* MainNavigationViewController.swift */; };
@@ -26,6 +27,7 @@
 
 /* Begin PBXFileReference section */
 		03087A062277B80000370537 /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
+		031FE50E227A4F27000A464A /* CheckoutTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutTableViewCell.swift; sourceTree = "<group>"; };
 		03CBCC4822752D4700D090DB /* BannerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCollectionViewCell.swift; sourceTree = "<group>"; };
 		03DD5B0822713CBE0044570F /* 1erObligatorio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 1erObligatorio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03DD5B0B22713CBE0044570F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -60,6 +62,7 @@
 			children = (
 				03087A062277B80000370537 /* ItemTableViewCell.swift */,
 				03CBCC4822752D4700D090DB /* BannerCollectionViewCell.swift */,
+				031FE50E227A4F27000A464A /* CheckoutTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -215,6 +218,7 @@
 				03DD5B2422713E390044570F /* ItemType.swift in Sources */,
 				03DD5B2A227140920044570F /* Trolley.swift in Sources */,
 				03DD5B0C22713CBE0044570F /* AppDelegate.swift in Sources */,
+				031FE50F227A4F27000A464A /* CheckoutTableViewCell.swift in Sources */,
 				03F35D9622728F8900518847 /* CheckoutViewController.swift in Sources */,
 				03F35D8C227275CA00518847 /* DataModelManager.swift in Sources */,
 			);

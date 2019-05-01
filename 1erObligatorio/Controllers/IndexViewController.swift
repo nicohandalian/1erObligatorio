@@ -15,6 +15,7 @@ class IndexViewController: UIViewController{
     @IBOutlet weak var bannersCollectionView: UICollectionView!
     @IBOutlet weak var itemsTableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var bannerPageControl: UIPageControl!
     
     let banners = DataModelManager.shared.getBanners()
     let items = DataModelManager.shared.getItems()
@@ -48,6 +49,9 @@ class IndexViewController: UIViewController{
         searchBar.placeholder = "Search items by Name"
     }
     
+    @IBAction func moveToPage(_ sender: Any) {
+        bannersCollectionView.scrollToItem(at: IndexPath(item: bannerPageControl.currentPage,section: 0), at: .right, animated: true)
+    }
     
     @IBAction func checkoutButton(_ sender: Any) {
         let checkoutNavigationController = storyboard?.instantiateViewController(withIdentifier: "CheckoutViewController") as! CheckoutViewController
@@ -58,6 +62,8 @@ class IndexViewController: UIViewController{
 extension IndexViewController: UICollectionViewDelegate, UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        bannerPageControl.numberOfPages = banners.count
+        bannerPageControl.isHidden = !(banners.count > 1)
         return banners.count
     }
     
@@ -72,7 +78,19 @@ extension IndexViewController: UICollectionViewDelegate, UICollectionViewDataSou
     }
 }
 
+extension IndexViewController: UIScrollViewDelegate{
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        bannerPageControl?.currentPage = Int(scrollView.contentOffset.x) / Int(scrollView.frame.width)
+    }
+    
+    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+        bannerPageControl?.currentPage = Int(scrollView.contentOffset.x) / Int(scrollView.frame.width)
+    }
+}
+
 extension IndexViewController: UITableViewDataSource, UITableViewDelegate{
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return currentItems[section].count
     }
@@ -89,7 +107,7 @@ extension IndexViewController: UITableViewDataSource, UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return itemTypes[section].rawValue
+        return itemTypes[section].rawValue + "s"
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

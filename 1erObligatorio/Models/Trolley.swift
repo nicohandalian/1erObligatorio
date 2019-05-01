@@ -11,6 +11,12 @@ import Foundation
 class Trolley {
     var selectedItems: [Int: SelectedItem] = [:]
     
+    var toList:[SelectedItem] {
+        get{
+            return Array(selectedItems.values)
+        }
+    }
+    
     init() {
     }
     
@@ -42,4 +48,5 @@ class Trolley {
     func clear(){
         self.selectedItems = [:]
     }
+    
 }
