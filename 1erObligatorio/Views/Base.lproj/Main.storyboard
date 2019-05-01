@@ -326,7 +326,6 @@
         <image name="icon-plus" width="12" height="12"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="hOp-Qb-FGy"/>
         <segue reference="5BF-yO-WDY"/>
     </inferredMetricsTieBreakers>
 </document>
