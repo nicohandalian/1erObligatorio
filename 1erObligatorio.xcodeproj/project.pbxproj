@@ -95,6 +95,7 @@
 		03DD5B1D22713CEF0044570F /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				03DD5B2322713E390044570F /* ItemType.swift */,
 				03DD5B2122713D880044570F /* Item.swift */,
 				03DD5B2522713F910044570F /* Banner.swift */,
 				03DD5B272271402D0044570F /* SelectedItem.swift */,
@@ -129,7 +130,6 @@
 			children = (
 				03DD5B0B22713CBE0044570F /* AppDelegate.swift */,
 				03DD5B1222713CBE0044570F /* Assets.xcassets */,
-				03DD5B2322713E390044570F /* ItemType.swift */,
 			);
 			path = SupportedFiles;
 			sourceTree = "<group>";

@@ -10,13 +10,16 @@ import Foundation
 import UIKit
 
 class CheckoutViewController: UIViewController {
+    @IBOutlet weak var totalPriceLabel: UILabel!
+    
     var trolley = DataModelManager.getTrolley()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        totalPriceLabel.text = "$" + String(trolley.getTotalPrice())
     }
     
-    @IBAction func checkouButtonPressed(_ sender: Any) {
+    @IBAction func checkoutButtonPressed(_ sender: Any) {
         trolley.clear()
         let indexNavigationController = storyboard?.instantiateViewController(withIdentifier: "IndexViewController") as! IndexViewController
         present(indexNavigationController, animated: true, completion: nil)

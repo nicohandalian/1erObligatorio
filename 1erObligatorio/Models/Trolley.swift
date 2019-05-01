@@ -31,6 +31,14 @@ class Trolley {
         }
     }
     
+    func getTotalPrice()->Float{
+        var total:Float = 0
+        for (_,selItem) in selectedItems{
+            total += (Float(selItem.quantity) * selItem.item.price)
+        }
+        return total
+    }
+    
     func clear(){
         self.selectedItems = [:]
     }
