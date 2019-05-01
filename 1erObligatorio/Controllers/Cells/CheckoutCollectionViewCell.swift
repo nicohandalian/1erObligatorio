@@ -8,24 +8,15 @@
 
 import UIKit
 
-class CheckoutTableViewCell: UITableViewCell {
+class CheckoutCollectionViewCell: UICollectionViewCell {
+
     @IBOutlet weak var itemImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var unitsLabel: UILabel!
+    @IBOutlet weak var priceLabel: UILabel!
     
     var selectedItem: SelectedItem!
     var trolley =  DataModelManager.shared.getTrolley()
-    
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-    }
     
     func setSelectedItem(selectedItem: SelectedItem){
         self.selectedItem = selectedItem
