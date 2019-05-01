@@ -10,13 +10,13 @@ import Foundation
 import UIKit
 
 class DataModelManager {
-    static let dataModelManager = DataModelManager()
-    static let trolley = Trolley()
+    static let shared = DataModelManager()
+    let trolley = Trolley()
     
     private init() {
     }
     
-    static func getItems()->[Item] {
+    func getItems()->[[Item]] {
         
         let grapefruitSmallImage = UIImage(named: "Grapefruit")!
         let grapefruitBigImage = UIImage(named: "Grapefruit-2")!
@@ -38,11 +38,11 @@ class DataModelManager {
         let watermelonBigImage = UIImage(named: "Watermelon-2")!
         let watermelon = Item(id: 5, name: "Watermelon", type: ItemType.fruit, price: 45, smallImage: watermelonSmallImage, bigImage: watermelonBigImage)
         
-        let products:[Item] = [grapefruit, avocado, cucumber, kiwi, watermelon]
+        let products:[[Item]] = [[grapefruit, watermelon, kiwi],[avocado, cucumber]]
         return products
     }
     
-    static func getBanners()->[Banner] {
+    func getBanners()->[Banner] {
         
         
         let bananaBannerImage = UIImage(named: "Banner-1")!
@@ -63,8 +63,12 @@ class DataModelManager {
         return banners
     }
     
-    static func getTrolley()->Trolley{
+    func getTrolley()->Trolley{
         return trolley
+    }
+    
+    func getItemTypes()->[ItemType]{
+        return [ItemType.fruit, ItemType.veggie]
     }
     
 }

@@ -12,7 +12,7 @@ import UIKit
 class CheckoutViewController: UIViewController {
     @IBOutlet weak var totalPriceLabel: UILabel!
     
-    var trolley = DataModelManager.getTrolley()
+    var trolley = DataModelManager.shared.getTrolley()
     
     override func viewDidLoad() {
         super.viewDidLoad()

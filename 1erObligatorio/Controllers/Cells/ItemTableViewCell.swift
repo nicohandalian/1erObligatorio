@@ -18,7 +18,7 @@ class ItemTableViewCell: UITableViewCell {
     @IBOutlet weak var quantityLabel: UILabel!
 
     var item: Item!
-    var trolley =  DataModelManager.getTrolley()
+    var trolley =  DataModelManager.shared.getTrolley()
     
     override func awakeFromNib() {
         super.awakeFromNib()
