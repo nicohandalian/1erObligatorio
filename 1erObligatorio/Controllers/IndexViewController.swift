@@ -26,7 +26,6 @@ class IndexViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         currentItems = items
         
         itemsTableView.dataSource = self
@@ -117,11 +116,23 @@ extension IndexViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 150
     }
-    //
-    //    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-    //        return searchBar
-    //    }
     
+    
+//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//
+//        let headerView = UIView()
+//
+//        let sectionLabel = UILabel(frame: CGRect(x: 8, y: 28, width:
+//            tableView.bounds.size.width, height: tableView.bounds.size.height))
+//        sectionLabel.font = UIFont(name: "Helvetica", size: 22)
+//        sectionLabel.textColor = UIColor.black
+//        sectionLabel.text = itemTypes[section].rawValue + "s"
+//        sectionLabel.sizeToFit()
+//        headerView.addSubview(sectionLabel)
+//
+//        return headerView
+//    }
+
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return UITableView.automaticDimension
     }
