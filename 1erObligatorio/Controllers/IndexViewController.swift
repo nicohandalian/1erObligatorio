@@ -53,8 +53,8 @@ class IndexViewController: UIViewController{
     }
     
     @IBAction func checkoutButton(_ sender: Any) {
-        let checkoutNavigationController = storyboard?.instantiateViewController(withIdentifier: "CheckoutViewController") as! CheckoutViewController
-        present(checkoutNavigationController, animated: true, completion: nil)
+//        let checkoutNavigationController = storyboard?.instantiateViewController(withIdentifier: "CheckoutViewController") as! CheckoutViewController
+//        present(checkoutNavigationController, animated: true, completion: nil)
     }
     
 }
@@ -116,22 +116,6 @@ extension IndexViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 150
     }
-    
-    
-//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//
-//        let headerView = UIView()
-//
-//        let sectionLabel = UILabel(frame: CGRect(x: 8, y: 28, width:
-//            tableView.bounds.size.width, height: tableView.bounds.size.height))
-//        sectionLabel.font = UIFont(name: "Helvetica", size: 22)
-//        sectionLabel.textColor = UIColor.black
-//        sectionLabel.text = itemTypes[section].rawValue + "s"
-//        sectionLabel.sizeToFit()
-//        headerView.addSubview(sectionLabel)
-//
-//        return headerView
-//    }
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return UITableView.automaticDimension

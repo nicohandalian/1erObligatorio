@@ -12,9 +12,6 @@ import UIKit
 class CheckoutViewController: UIViewController {
     @IBOutlet weak var totalPriceLabel: UILabel!
     @IBOutlet weak var checkoutCollectionView: UICollectionView!
-    @IBOutlet weak var quantityView: UIView!
-    @IBOutlet weak var nameQuantityLabel: UILabel!
-    @IBOutlet weak var quantityPickerView: UIPickerView!
     @IBOutlet weak var checkoutButton: UIButton!
     
     var items = DataModelManager.shared.getItems()
@@ -27,8 +24,7 @@ class CheckoutViewController: UIViewController {
         totalPriceLabel.text = "$" + String(trolley.getTotalPrice())
         alterLayout()
         
-    }
-    
+    }    
     
     func alterLayout(){
         
@@ -37,18 +33,9 @@ class CheckoutViewController: UIViewController {
         checkoutButton.layer.borderColor = #colorLiteral(red: 0.3236978054, green: 0.1063579395, blue: 0.574860394, alpha: 1)
     }
     func indexHandler(alert: UIAlertAction!){
-        let indexNavigationController = storyboard?.instantiateViewController(withIdentifier: "IndexViewController") as! IndexViewController
-        
-        present(indexNavigationController, animated: true, completion: nil)
-        
+        self.navigationController?.popViewController(animated: true)
     }
     
-    @IBAction func confirmQuantityButtonPressed(_ sender: Any) {
-    }
-    
-    @IBAction func cancelQuantityButtonPressed(_ sender: Any) {
-        quantityView.isHidden = true
-    }
     
     @IBAction func checkoutButtonPressed(_ sender: Any) {
         trolley.clear()

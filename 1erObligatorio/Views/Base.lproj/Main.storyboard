@@ -162,7 +162,7 @@
                                     <action selector="moveToPage:" destination="BYZ-38-t0r" eventType="valueChanged" id="eWr-jH-uBO"/>
                                 </connections>
                             </pageControl>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="I1o-Oo-OUV">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="I1o-Oo-OUV">
                                 <rect key="frame" x="0.0" y="14.000000000000014" width="414" height="232.33333333333337"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="004-YE-Qmq">
@@ -358,7 +358,6 @@
                                 </state>
                                 <connections>
                                     <action selector="checkoutButtonPressed:" destination="Ale-SJ-91z" eventType="touchUpInside" id="FtV-4z-TQY"/>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="5BF-yO-WDY"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0I7-Dn-rcx">
@@ -367,67 +366,15 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jFs-7h-hFF" userLabel="Quantity View">
-                                <rect key="frame" x="62" y="265.66666666666669" width="290" height="242.66666666666669"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x52-Qu-HAq">
-                                        <rect key="frame" x="122.66666666666666" y="0.0" width="45" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Units:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eYh-Ef-qH8" userLabel="Units">
-                                        <rect key="frame" x="0.0" y="111" width="45" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nPo-t9-JGt">
-                                        <rect key="frame" x="-15" y="13.333333333333314" width="320" height="216"/>
-                                    </pickerView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wsb-pW-IkX">
-                                        <rect key="frame" x="226" y="211.99999999999994" width="30" height="30"/>
-                                        <state key="normal" title="Ok"/>
-                                        <connections>
-                                            <action selector="confirmQuantityButtonPressed:" destination="Ale-SJ-91z" eventType="touchUpInside" id="FeV-9P-fWN"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6pj-h9-zlE">
-                                        <rect key="frame" x="16" y="211.99999999999994" width="48" height="30"/>
-                                        <state key="normal" title="Cancel"/>
-                                        <connections>
-                                            <action selector="cancelQuantityButtonPressed:" destination="Ale-SJ-91z" eventType="touchUpInside" id="G5v-U6-IfR"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="6pj-h9-zlE" secondAttribute="bottom" constant="0.66666666666662877" id="5oC-TW-7UL"/>
-                                    <constraint firstItem="x52-Qu-HAq" firstAttribute="top" secondItem="jFs-7h-hFF" secondAttribute="top" id="6V0-yV-MOL"/>
-                                    <constraint firstItem="6pj-h9-zlE" firstAttribute="leading" secondItem="jFs-7h-hFF" secondAttribute="leading" constant="16" id="8hV-1x-AWi"/>
-                                    <constraint firstItem="x52-Qu-HAq" firstAttribute="centerX" secondItem="jFs-7h-hFF" secondAttribute="centerX" id="JNT-Za-hY3"/>
-                                    <constraint firstItem="wsb-pW-IkX" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6pj-h9-zlE" secondAttribute="trailing" constant="8" symbolic="YES" id="L2U-3X-5HB"/>
-                                    <constraint firstItem="nPo-t9-JGt" firstAttribute="centerY" secondItem="jFs-7h-hFF" secondAttribute="centerY" id="Qan-rX-XvF"/>
-                                    <constraint firstAttribute="trailing" secondItem="wsb-pW-IkX" secondAttribute="trailing" constant="34" id="RWb-l5-rrF"/>
-                                    <constraint firstItem="eYh-Ef-qH8" firstAttribute="centerY" secondItem="jFs-7h-hFF" secondAttribute="centerY" id="T49-6n-GW6"/>
-                                    <constraint firstItem="eYh-Ef-qH8" firstAttribute="leading" secondItem="jFs-7h-hFF" secondAttribute="leading" id="hY4-mb-6Et"/>
-                                    <constraint firstItem="nPo-t9-JGt" firstAttribute="centerX" secondItem="jFs-7h-hFF" secondAttribute="centerX" id="nC4-Vg-aEg"/>
-                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="eYh-Ef-qH8" secondAttribute="trailing" constant="20" symbolic="YES" id="pwR-L3-z7I"/>
-                                    <constraint firstAttribute="bottom" secondItem="wsb-pW-IkX" secondAttribute="bottom" constant="0.66666666666662877" id="qjl-o7-9Qa"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="0I7-Dn-rcx" firstAttribute="bottom" secondItem="EzP-3S-Vrc" secondAttribute="bottom" id="0gA-Pd-iN0"/>
-                            <constraint firstItem="jFs-7h-hFF" firstAttribute="centerX" secondItem="bqo-M2-cC8" secondAttribute="centerX" id="7LT-sZ-aIA"/>
                             <constraint firstItem="bqo-M2-cC8" firstAttribute="trailing" secondItem="weI-Pn-MFk" secondAttribute="trailing" constant="30" id="7fd-BJ-hH6"/>
                             <constraint firstItem="EzP-3S-Vrc" firstAttribute="leading" secondItem="weI-Pn-MFk" secondAttribute="leading" id="AbX-TM-lsy"/>
                             <constraint firstItem="RFN-Vb-IBW" firstAttribute="leading" secondItem="bqo-M2-cC8" secondAttribute="leading" constant="10" id="Aje-fk-a8Y"/>
                             <constraint firstItem="EzP-3S-Vrc" firstAttribute="bottom" secondItem="weI-Pn-MFk" secondAttribute="top" constant="-20" id="CBL-xg-gFh"/>
-                            <constraint firstItem="jFs-7h-hFF" firstAttribute="height" secondItem="4PA-FW-N8a" secondAttribute="height" multiplier="0.3" id="Hzj-PD-RHR"/>
                             <constraint firstItem="RFN-Vb-IBW" firstAttribute="top" secondItem="36S-bz-478" secondAttribute="bottom" constant="30" id="KGJ-fs-fOH"/>
-                            <constraint firstItem="jFs-7h-hFF" firstAttribute="width" secondItem="4PA-FW-N8a" secondAttribute="width" multiplier="0.7" id="Mc9-4t-Bff"/>
                             <constraint firstItem="36S-bz-478" firstAttribute="leading" secondItem="bqo-M2-cC8" secondAttribute="leading" constant="10" id="QMc-rC-wQk"/>
                             <constraint firstItem="0I7-Dn-rcx" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="EzP-3S-Vrc" secondAttribute="trailing" constant="8" symbolic="YES" id="Ryk-sI-P8g"/>
                             <constraint firstItem="bqo-M2-cC8" firstAttribute="bottom" secondItem="weI-Pn-MFk" secondAttribute="bottom" constant="30" id="ebd-g2-cC4"/>
@@ -435,7 +382,6 @@
                             <constraint firstItem="RFN-Vb-IBW" firstAttribute="bottom" secondItem="EzP-3S-Vrc" secondAttribute="top" constant="-30" id="keI-yK-2jz"/>
                             <constraint firstItem="bqo-M2-cC8" firstAttribute="trailing" secondItem="0I7-Dn-rcx" secondAttribute="trailing" constant="27" id="om8-ir-lSp"/>
                             <constraint firstItem="bqo-M2-cC8" firstAttribute="trailing" secondItem="RFN-Vb-IBW" secondAttribute="trailing" constant="10" id="rA1-Lb-SUb"/>
-                            <constraint firstItem="jFs-7h-hFF" firstAttribute="centerY" secondItem="bqo-M2-cC8" secondAttribute="centerY" id="sec-e5-XP4"/>
                             <constraint firstItem="weI-Pn-MFk" firstAttribute="leading" secondItem="bqo-M2-cC8" secondAttribute="leading" constant="30" id="x7T-tj-iIx"/>
                             <constraint firstItem="36S-bz-478" firstAttribute="top" secondItem="bqo-M2-cC8" secondAttribute="top" constant="10" id="xct-cX-dya"/>
                         </constraints>
@@ -447,9 +393,6 @@
                     <connections>
                         <outlet property="checkoutButton" destination="weI-Pn-MFk" id="koG-qC-2oD"/>
                         <outlet property="checkoutCollectionView" destination="RFN-Vb-IBW" id="wW8-tt-C5M"/>
-                        <outlet property="nameQuantityLabel" destination="x52-Qu-HAq" id="TdJ-GE-ATb"/>
-                        <outlet property="quantityPickerView" destination="nPo-t9-JGt" id="61f-sf-PEe"/>
-                        <outlet property="quantityView" destination="jFs-7h-hFF" id="D6l-I7-Zqa"/>
                         <outlet property="totalPriceLabel" destination="0I7-Dn-rcx" id="Yvx-ta-KVC"/>
                     </connections>
                 </viewController>
@@ -463,8 +406,4 @@
         <image name="icon-minus" width="8" height="3"/>
         <image name="icon-plus" width="12" height="12"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="hOp-Qb-FGy"/>
-        <segue reference="5BF-yO-WDY"/>
-    </inferredMetricsTieBreakers>
 </document>
