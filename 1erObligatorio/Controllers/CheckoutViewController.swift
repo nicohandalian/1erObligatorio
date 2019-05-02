@@ -15,6 +15,7 @@ class CheckoutViewController: UIViewController {
     @IBOutlet weak var quantityView: UIView!
     @IBOutlet weak var nameQuantityLabel: UILabel!
     @IBOutlet weak var quantityPickerView: UIPickerView!
+    @IBOutlet weak var checkoutButton: UIButton!
     
     var items = DataModelManager.shared.getItems()
     var trolley = DataModelManager.shared.getTrolley()
@@ -24,9 +25,17 @@ class CheckoutViewController: UIViewController {
         checkoutCollectionView.dataSource = self
         checkoutCollectionView.delegate = self
         totalPriceLabel.text = "$" + String(trolley.getTotalPrice())
+        alterLayout()
         
     }
+    
+    
+    func alterLayout(){
         
+        checkoutButton.layer.cornerRadius = 15
+        checkoutButton.layer.borderWidth = 2
+        checkoutButton.layer.borderColor = #colorLiteral(red: 0.3236978054, green: 0.1063579395, blue: 0.574860394, alpha: 1)
+    }
     func indexHandler(alert: UIAlertAction!){
         let indexNavigationController = storyboard?.instantiateViewController(withIdentifier: "IndexViewController") as! IndexViewController
         

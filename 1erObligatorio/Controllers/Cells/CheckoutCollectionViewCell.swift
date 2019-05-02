@@ -26,9 +26,27 @@ class CheckoutCollectionViewCell: UICollectionViewCell {
         self.unitsLabel.text = String(selectedItem.quantity) + " units"
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.tapGesture))
         self.itemImageView.addGestureRecognizer(tapGesture)
+        
+        alterLayout()
     }
+    
+    
+    
+    func alterLayout(){
+        itemImageView.setRoundedCorners()
+    }
+    
     @objc func tapGesture(){
         
     }
 
+}
+
+extension UIImageView {
+    
+    func setRoundedCorners() {
+        self.layer.cornerRadius = self.frame.width/15
+        self.layer.masksToBounds = true
+    }
+    
 }
