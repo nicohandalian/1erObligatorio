@@ -22,13 +22,26 @@ class ItemTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.itemImageView.setRounded()
+        self.alterLayout()
         
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(false, animated: false)
 
+    }
+    
+    func alterLayout(){
+        self.itemImageView.setRounded()
+        
+        addButton.layer.cornerRadius = 15
+        addButton.layer.borderWidth = 2
+        addButton.layer.borderColor = #colorLiteral(red: 0.3236978054, green: 0.1063579395, blue: 0.574860394, alpha: 1)
+        
+        
+        quantityView.layer.cornerRadius = 15
+        quantityView.layer.borderWidth = 1
+        quantityView.layer.borderColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
     }
     
     func setItem(item:Item){
@@ -91,11 +104,10 @@ class ItemTableViewCell: UITableViewCell {
     
 }
 
-
 extension UIImageView {
     
     func setRounded() {
-        self.layer.cornerRadius = self.frame.width/2
+        self.layer.cornerRadius = self.frame.width/1.6
         self.layer.masksToBounds = true
     }
 }

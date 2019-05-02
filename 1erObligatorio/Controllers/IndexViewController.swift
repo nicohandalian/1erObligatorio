@@ -26,6 +26,7 @@ class IndexViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         currentItems = items
         
         itemsTableView.dataSource = self
@@ -114,7 +115,7 @@ extension IndexViewController: UITableViewDataSource, UITableViewDelegate{
         return itemTypes.count
     }
     
-    func tableView(_ tabl2eView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 150
     }
     //

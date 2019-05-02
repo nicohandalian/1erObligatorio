@@ -12,6 +12,9 @@ import UIKit
 class CheckoutViewController: UIViewController {
     @IBOutlet weak var totalPriceLabel: UILabel!
     @IBOutlet weak var checkoutCollectionView: UICollectionView!
+    @IBOutlet weak var quantityView: UIView!
+    @IBOutlet weak var nameQuantityLabel: UILabel!
+    @IBOutlet weak var quantityPickerView: UIPickerView!
     
     var items = DataModelManager.shared.getItems()
     var trolley = DataModelManager.shared.getTrolley()
@@ -23,7 +26,7 @@ class CheckoutViewController: UIViewController {
         totalPriceLabel.text = "$" + String(trolley.getTotalPrice())
         
     }
-    
+        
     func indexHandler(alert: UIAlertAction!){
         let indexNavigationController = storyboard?.instantiateViewController(withIdentifier: "IndexViewController") as! IndexViewController
         
@@ -31,7 +34,12 @@ class CheckoutViewController: UIViewController {
         
     }
     
+    @IBAction func confirmQuantityButtonPressed(_ sender: Any) {
+    }
     
+    @IBAction func cancelQuantityButtonPressed(_ sender: Any) {
+        quantityView.isHidden = true
+    }
     
     @IBAction func checkoutButtonPressed(_ sender: Any) {
         trolley.clear()
@@ -61,6 +69,4 @@ extension CheckoutViewController: UICollectionViewDataSource, UICollectionViewDe
         
         return cell
     }
-    
-    
 }
