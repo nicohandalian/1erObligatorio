@@ -44,10 +44,9 @@ class IndexViewController: UIViewController{
     }
     
     func alterLayout() {
-        itemsTableView.tableHeaderView = UIView()
         itemsTableView.estimatedSectionHeaderHeight = 50
         searchBar.showsScopeBar = false
-        searchBar.placeholder = "Search items by Name"
+        searchBar.placeholder = "Search"
     }
     
     @IBAction func moveToPage(_ sender: Any) {
