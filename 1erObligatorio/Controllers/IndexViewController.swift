@@ -42,6 +42,10 @@ class IndexViewController: UIViewController{
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        itemsTableView.reloadData()
+    }
+    
     func alterLayout() {
         itemsTableView.estimatedSectionHeaderHeight = 50
         searchBar.showsScopeBar = false
@@ -136,6 +140,14 @@ extension IndexViewController: UISearchBarDelegate{
             })
         }
         itemsTableView.reloadData()
+    }
+    
+}
+
+extension IndexViewController: UICollectionViewDelegateFlowLayout{
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.bounds.width - 10, height: collectionView.bounds.height - 10)
     }
     
 }

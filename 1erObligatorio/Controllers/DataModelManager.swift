@@ -20,7 +20,7 @@ class DataModelManager {
         
         let grapefruitSmallImage = UIImage(named: "Grapefruit")!
         let grapefruitBigImage = UIImage(named: "Grapefruit-2")!
-        let grapefruit = Item(id: 1, name: "Grapefuit", type: ItemType.fruit, price: 45, smallImage: grapefruitSmallImage, bigImage: grapefruitBigImage)
+        let grapefruit = Item(id: 1, name: "Grapefruit", type: ItemType.fruit, price: 45, smallImage: grapefruitSmallImage, bigImage: grapefruitBigImage)
         
         let avocadoSmallImage = UIImage(named: "Avocado")!
         let avocadoBigImage = UIImage(named: "Avocado")!

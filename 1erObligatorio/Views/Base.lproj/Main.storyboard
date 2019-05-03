@@ -38,7 +38,7 @@
                                 <rect key="frame" x="0.0" y="289.33333333333326" width="414" height="484.66666666666674"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="separatorColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <searchBar key="tableHeaderView" contentMode="redraw" id="8Rl-BZ-Fio">
+                                <searchBar key="tableHeaderView" contentMode="redraw" searchBarStyle="minimal" id="8Rl-BZ-Fio">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                     <textInputTraits key="textInputTraits"/>
@@ -169,18 +169,18 @@
                                     <size key="itemSize" width="412" height="148"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="redraw" reuseIdentifier="BannerCell" id="Xpq-S9-Jqk" customClass="BannerCollectionViewCell" customModule="_erObligatorio" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="42.333333333333336" width="412" height="148"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" reuseIdentifier="BannerCell" id="Xpq-S9-Jqk" customClass="BannerCollectionViewCell" customModule="_erObligatorio" customModuleProvider="target">
+                                        <rect key="frame" x="10" y="42.333333333333336" width="412" height="148"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="412" height="148"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TD0-rl-PlP">
-                                                    <rect key="frame" x="11" y="0.0" width="390" height="148"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TD0-rl-PlP">
+                                                    <rect key="frame" x="0.0" y="0.0" width="402" height="148"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tD2-t2-ckv">
                                                     <rect key="frame" x="21" y="81" width="412" height="21"/>
@@ -205,9 +205,9 @@
                                             <constraint firstItem="XNj-v4-bdK" firstAttribute="centerX" secondItem="tD2-t2-ckv" secondAttribute="centerX" id="8xq-tJ-kLB"/>
                                             <constraint firstAttribute="bottom" secondItem="XNj-v4-bdK" secondAttribute="bottom" constant="14" id="MGY-B7-4vX"/>
                                             <constraint firstItem="tD2-t2-ckv" firstAttribute="width" secondItem="Xpq-S9-Jqk" secondAttribute="width" id="XSn-qS-xpQ"/>
-                                            <constraint firstAttribute="trailing" secondItem="TD0-rl-PlP" secondAttribute="trailing" constant="11" id="YUG-dK-kuy"/>
+                                            <constraint firstAttribute="trailing" secondItem="TD0-rl-PlP" secondAttribute="trailing" constant="10" id="YUG-dK-kuy"/>
                                             <constraint firstItem="TD0-rl-PlP" firstAttribute="centerY" secondItem="Xpq-S9-Jqk" secondAttribute="centerY" id="c7B-Up-c5R"/>
-                                            <constraint firstItem="TD0-rl-PlP" firstAttribute="leading" secondItem="Xpq-S9-Jqk" secondAttribute="leading" constant="11" id="cn9-ZG-skk"/>
+                                            <constraint firstItem="TD0-rl-PlP" firstAttribute="leading" secondItem="Xpq-S9-Jqk" secondAttribute="leading" id="cn9-ZG-skk"/>
                                             <constraint firstItem="TD0-rl-PlP" firstAttribute="height" secondItem="Xpq-S9-Jqk" secondAttribute="height" id="tib-LT-dNy"/>
                                             <constraint firstItem="tD2-t2-ckv" firstAttribute="leading" secondItem="Xpq-S9-Jqk" secondAttribute="leading" constant="21" id="vB6-Um-9av"/>
                                         </constraints>
