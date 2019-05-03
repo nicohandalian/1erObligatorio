@@ -29,7 +29,7 @@ class CheckoutViewController: UIViewController {
         self.updateTotal()
         alterLayout()
         
-    }    
+    }
     
     func updateTotal(){
         totalPriceLabel.text = "$" + String(trolley.getTotalPrice())
@@ -78,6 +78,9 @@ extension CheckoutViewController: UICollectionViewDataSource, UICollectionViewDe
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.selectIndexPath = indexPath
+        
+        picker.removeFromSuperview()
+        toolBar.removeFromSuperview()
         picker = UIPickerView.init()
         picker.delegate = self
         picker.backgroundColor = UIColor.white
@@ -88,7 +91,7 @@ extension CheckoutViewController: UICollectionViewDataSource, UICollectionViewDe
         self.view.addSubview(picker)
         
         toolBar = UIToolbar.init(frame: CGRect.init(x: 0.0, y: UIScreen.main.bounds.size.height - 300, width: UIScreen.main.bounds.size.width, height: 50))
-        toolBar.barStyle = .blackTranslucent
+        toolBar.barStyle = .default
         toolBar.items = [UIBarButtonItem.init(title: "Done", style: .done, target: self, action: #selector(onDoneButtonTapped))]
         self.view.addSubview(toolBar)
     }
@@ -110,7 +113,7 @@ extension CheckoutViewController: UIPickerViewDelegate, UIPickerViewDataSource{
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return 10
+        return 100
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
