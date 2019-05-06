@@ -41,12 +41,3 @@ class CheckoutCollectionViewCell: UICollectionViewCell {
     }
 
 }
-
-extension UIImageView {
-    
-    func setRoundedCorners() {
-        self.layer.cornerRadius = self.frame.width/15
-        self.layer.masksToBounds = true
-    }
-    
-}
