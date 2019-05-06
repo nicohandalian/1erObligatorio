@@ -110,6 +110,23 @@ extension IndexViewController: UITableViewDataSource, UITableViewDelegate{
         return cell
     }
     
+    
+//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//
+//        let headerView = UIView()
+//
+//        let sectionLabel = UILabel(frame: CGRect(x: 8, y: 28, width:
+//            tableView.bounds.size.width, height: 40))
+//        sectionLabel.font = UIFont(name: "Helvetica", size: 22)
+//        sectionLabel.textColor = UIColor.black
+//        sectionLabel.text = itemTypes[section].rawValue + "s"
+//        sectionLabel.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+//        sectionLabel.sizeThatFits(CGSize(width: tableView.bounds.width, height: 40))
+//        headerView.addSubview(sectionLabel)
+//
+//        return headerView
+//    }
+    
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return itemTypes[section].rawValue + "s"
     }

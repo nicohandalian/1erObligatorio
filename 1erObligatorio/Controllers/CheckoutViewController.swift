@@ -28,7 +28,6 @@ class CheckoutViewController: UIViewController {
         checkoutCollectionView.delegate = self
         self.updateTotal()
         alterLayout()
-        
     }
     
     func updateTotal(){
@@ -36,7 +35,6 @@ class CheckoutViewController: UIViewController {
     }
     
     func alterLayout(){
-        
         checkoutButton.layer.cornerRadius = 15
         checkoutButton.layer.borderWidth = 2
         checkoutButton.layer.borderColor = #colorLiteral(red: 0.3236978054, green: 0.1063579395, blue: 0.574860394, alpha: 1)
@@ -48,7 +46,6 @@ class CheckoutViewController: UIViewController {
     
     
     @IBAction func checkoutButtonPressed(_ sender: Any) {
-        
         let alert = UIAlertController(title: "Successful checkout", message: "Your purchase has been made successfully.", preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: indexHandler))

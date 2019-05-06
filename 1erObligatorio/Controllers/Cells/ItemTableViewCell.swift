@@ -81,7 +81,7 @@ class ItemTableViewCell: UITableViewCell {
         guard let quantity = trolley.findItemQuantity(id: item.id) else{
             return
         }
-        let actualQuantity = quantity+1
+        let actualQuantity = quantity + 1
         trolley.modifyItem(id: item.id, quantity: actualQuantity)
         quantityLabel.text = String(actualQuantity)
     }
