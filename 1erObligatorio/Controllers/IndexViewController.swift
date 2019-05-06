@@ -74,6 +74,7 @@ extension IndexViewController: UICollectionViewDelegate, UICollectionViewDataSou
         let cell = bannersCollectionView.dequeueReusableCell(withReuseIdentifier: "BannerCell", for: indexPath) as! BannerCollectionViewCell
         
         cell.bannerImageView.image = banners[indexPath.item].picture
+        cell.bannerImageView.setRoundedCorners()
         cell.bannerTitleLabel.text = banners[indexPath.item].title
         cell.bannerDescriptionLabel.text = banners[indexPath.item].description
         
