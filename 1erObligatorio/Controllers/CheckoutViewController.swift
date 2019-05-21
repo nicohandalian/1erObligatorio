@@ -103,6 +103,12 @@ extension CheckoutViewController: UICollectionViewDataSource, UICollectionViewDe
     }
 }
 
+extension CheckoutViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: (collectionView.frame.width/2) - 7.5, height: (collectionView.frame.height/1.5))
+    }
+}
+
 extension CheckoutViewController: UIPickerViewDelegate, UIPickerViewDataSource{
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int{
