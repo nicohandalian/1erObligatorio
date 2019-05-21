@@ -27,8 +27,6 @@ class CheckoutCollectionViewCell: UICollectionViewCell {
         alterLayout()
     }
     
-    
-    
     func alterLayout(){
         itemImageView.setRoundedCorners()
     }

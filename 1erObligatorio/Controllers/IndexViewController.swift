@@ -57,8 +57,12 @@ class IndexViewController: UIViewController{
     }
     
     @IBAction func checkoutButton(_ sender: Any) {
-//        let checkoutNavigationController = storyboard?.instantiateViewController(withIdentifier: "CheckoutViewController") as! CheckoutViewController
-//        present(checkoutNavigationController, animated: true, completion: nil)
+        if(trolley.isEmpty()){
+            let failCheckoutAlert = UIAlertController(title: "Failed at checkout", message: "You have to select at least one item to checkout.", preferredStyle: .alert)
+            
+            failCheckoutAlert.addAction(UIAlertAction(title: "OK", style: .default,handler: nil))
+            self.present(failCheckoutAlert, animated: true)
+        }
     }
     
 }

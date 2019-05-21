@@ -46,11 +46,20 @@ class CheckoutViewController: UIViewController {
     
     
     @IBAction func checkoutButtonPressed(_ sender: Any) {
-        let alert = UIAlertController(title: "Successful checkout", message: "Your purchase has been made successfully.", preferredStyle: .alert)
-        
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: indexHandler))
-        
-        self.present(alert, animated: true)
+        if(trolley.isEmpty()){
+            let failCheckoutAlert = UIAlertController(title: "Failed at checkout", message: "You have to select at least one item to checkout.", preferredStyle: .alert)
+            
+            failCheckoutAlert.addAction(UIAlertAction(title: "OK", style: .default,handler: nil))
+            self.present(failCheckoutAlert, animated: true)
+        }
+        else{
+            let checkoutAlert = UIAlertController(title: "Successful checkout", message: "Your purchase has been made successfully.", preferredStyle: .alert)
+            
+            checkoutAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: indexHandler))
+            
+            self.present(checkoutAlert, animated: true)
+            
+        }
         
     }
     

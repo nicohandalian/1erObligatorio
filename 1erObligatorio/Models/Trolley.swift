@@ -49,4 +49,8 @@ class Trolley {
         self.selectedItems = [:]
     }
     
+    func isEmpty()->Bool{
+        return selectedItems.isEmpty
+    }
+    
 }

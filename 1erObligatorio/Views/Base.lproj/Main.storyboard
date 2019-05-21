@@ -243,7 +243,7 @@
                                 <state key="normal" image="icon-cart"/>
                                 <connections>
                                     <action selector="checkoutButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="if9-Rv-S3C"/>
-                                    <segue destination="Ale-SJ-91z" kind="show" id="hOp-Qb-FGy"/>
+                                    <segue destination="Ale-SJ-91z" kind="show" identifier="CheckoutSegue" id="hOp-Qb-FGy"/>
                                 </connections>
                             </button>
                         </barButtonItem>
