@@ -20,7 +20,7 @@ class IndexViewController: UIViewController{
     let banners = DataModelManager.shared.getBanners()
     let items = DataModelManager.shared.getItems()
     let itemTypes = DataModelManager.shared.getItemTypes()
-
+    let trolley = DataModelManager.shared.getTrolley()
     var currentItems = [[Item]]()
     
     override func viewDidLoad() {
@@ -103,29 +103,15 @@ extension IndexViewController: UITableViewDataSource, UITableViewDelegate{
         guard let cell = itemsTableView.dequeueReusableCell(withIdentifier: "ItemCell") as? ItemTableViewCell else{
             return UITableViewCell()
         }
+        cell.itemTableViewCellDelegate = self
         let item = currentItems[indexPath.section][indexPath.row]
-        
-        cell.setItem(item: item)
-        
+        guard let quantity = trolley.findItemQuantity(id: item.id) else{
+            cell.setItem(item: item, quantity: 0)
+            return cell
+        }
+        cell.setItem(item: item,quantity: quantity)
         return cell
     }
-    
-    
-//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//
-//        let headerView = UIView()
-//
-//        let sectionLabel = UILabel(frame: CGRect(x: 8, y: 28, width:
-//            tableView.bounds.size.width, height: 40))
-//        sectionLabel.font = UIFont(name: "Helvetica", size: 22)
-//        sectionLabel.textColor = UIColor.black
-//        sectionLabel.text = itemTypes[section].rawValue + "s"
-//        sectionLabel.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-//        sectionLabel.sizeThatFits(CGSize(width: tableView.bounds.width, height: 40))
-//        headerView.addSubview(sectionLabel)
-//
-//        return headerView
-//    }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return itemTypes[section].rawValue + "s"
@@ -167,5 +153,42 @@ extension IndexViewController: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.bounds.width - 10, height: collectionView.bounds.height - 10)
     }
+    
+}
+
+
+extension IndexViewController: ItemTableViewDelegate{
+    func addSelectedItem(item: Item) -> Int {
+        let selItem = SelectedItem(item: item, quantity: 1)
+        trolley.addItem(selItem: selItem)
+        return 1
+    }
+    
+    func incrementQuantity(id: Int) -> Int {
+        guard let quantity = trolley.findItemQuantity(id: id) else{
+            return 0
+        }
+        let actualQuantity = quantity + 1
+        trolley.modifyItem(id: id, quantity: actualQuantity)
+        return actualQuantity
+    }
+    
+    func decreaseQuantity(id: Int) -> Int {
+        guard let quantity = trolley.findItemQuantity(id: id) else{
+            return 0
+        }
+        let actualQuantity = quantity - 1
+        trolley.modifyItem(id: id, quantity: actualQuantity)
+        return actualQuantity
+    }
+    
+    func getItemQuantity(id: Int) -> Int {
+        guard let quantity = trolley.findItemQuantity(id: id) else{
+            return 0
+        }
+        return quantity
+        
+    }
+    
     
 }

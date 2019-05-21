@@ -112,6 +112,7 @@
 		03DD5B1E22713CFF0044570F /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				03087A082277B88600370537 /* Cells */,
 				03DD5B0F22713CBE0044570F /* Main.storyboard */,
 				03DD5B1422713CBE0044570F /* LaunchScreen.storyboard */,
 			);
@@ -121,7 +122,6 @@
 		03DD5B1F22713D050044570F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				03087A082277B88600370537 /* Cells */,
 				03DD5B0D22713CBE0044570F /* MainNavigationViewController.swift */,
 				03F35D8B227275CA00518847 /* DataModelManager.swift */,
 				03F35D9322728F7700518847 /* IndexViewController.swift */,

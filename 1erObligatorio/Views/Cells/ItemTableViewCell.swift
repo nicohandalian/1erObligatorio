@@ -8,6 +8,12 @@
 
 import UIKit
 
+protocol ItemTableViewDelegate {
+    func addSelectedItem(item: Item) -> Int
+    func incrementQuantity(id: Int) -> Int
+    func decreaseQuantity(id: Int) -> Int
+}
+
 class ItemTableViewCell: UITableViewCell {
     
     @IBOutlet weak var itemImageView: UIImageView!
@@ -18,7 +24,7 @@ class ItemTableViewCell: UITableViewCell {
     @IBOutlet weak var quantityLabel: UILabel!
 
     var item: Item!
-    var trolley =  DataModelManager.shared.getTrolley()
+    var itemTableViewCellDelegate: ItemTableViewDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -44,19 +50,19 @@ class ItemTableViewCell: UITableViewCell {
         quantityView.layer.borderColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
     }
     
-    func setItem(item:Item){
+    func setItem(item:Item, quantity: Int){
         self.item = item
         self.itemImageView.image = item.smallImage
         self.nameLabel.text = item.name
         self.priceLabel.text = "$" + item.price.description
         
-        
-        guard let quantity = trolley.findItemQuantity(id: item.id) else{
-            showAddButton()
-            return
+        if(quantity>0){
+            showQuantityView()
+            self.quantityLabel.text = String(quantity)
         }
-        showQuantityView()
-        self.quantityLabel.text = String(quantity)
+        else{
+            showAddButton()
+        }
     }
     
     func showAddButton(){
@@ -71,35 +77,27 @@ class ItemTableViewCell: UITableViewCell {
     
     @IBAction func addButtonPressed(_ sender: Any) {
         showQuantityView()
-        let selItem = SelectedItem(item: self.item, quantity: 1)
-        trolley.addItem(selItem: selItem)
-        quantityLabel.text = "1"
+        let actualQuantity = itemTableViewCellDelegate!.addSelectedItem(item: item)
+        quantityLabel.text = String(actualQuantity)
+
         
     }
     
     @IBAction func plusButtonPressed(_ sender: Any) {
-        guard let quantity = trolley.findItemQuantity(id: item.id) else{
-            return
-        }
-        let actualQuantity = quantity + 1
-        trolley.modifyItem(id: item.id, quantity: actualQuantity)
+        let actualQuantity = itemTableViewCellDelegate!.incrementQuantity(id: item.id)
         quantityLabel.text = String(actualQuantity)
+
     }
     
     @IBAction func minusButtonPressed(_ sender: Any) {
-        guard let quantity = trolley.findItemQuantity(id: item.id) else{
-            return
-        }
-        
-        let actualQuantity = quantity-1
-        trolley.modifyItem(id: item.id, quantity: actualQuantity)
-        
+        let actualQuantity = itemTableViewCellDelegate!.decreaseQuantity(id: item.id)
         if(actualQuantity == 0){
             showAddButton()
         }
         else{
             quantityLabel.text = String(actualQuantity)
         }
+    
     }
     
 }
