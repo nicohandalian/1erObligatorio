@@ -8,14 +8,33 @@
 
 import Foundation
 import UIKit
+import ObjectMapper
 
-class Item {
-    var id: Int
-    var name: String
-    var type: ItemType
-    var price: Float
-    var smallImage: UIImage
-    var bigImage: UIImage
+class Item: Mappable {
+    var id: Int?
+    var name: String?
+    var type: ItemType?
+    var price: Float?
+    var smallImage: UIImage?
+    var bigImage: UIImage?
+    
+    var category: String?{
+        didSet{
+            switch category!.capitalized {
+            case "Fruits":
+                type = .fruit
+                break
+            case "Diary":
+                type = .diary
+                break
+            case "Veggie":
+                type = .veggie
+                break
+            default:
+                break
+            }
+        }
+    }
     
     
     init(id:Int, name:String, type:ItemType, price: Float, smallImage: UIImage, bigImage:UIImage) {
@@ -25,6 +44,19 @@ class Item {
         self.price = price
         self.smallImage = smallImage
         self.bigImage = bigImage
+    }
+    
+    required init?(map: Map) {
+        
+    }
+    
+    func mapping(map: Map) {
+        id <- map["id"]
+        name <- map["name"]
+        category <- map["category"]
+        price <- map["price"]
+        smallImage <- map["photoUrl"]
+        bigImage <- map["photoUrl"]
     }
     
 }

@@ -54,7 +54,7 @@ class ItemTableViewCell: UITableViewCell {
         self.item = item
         self.itemImageView.image = item.smallImage
         self.nameLabel.text = item.name
-        self.priceLabel.text = "$" + item.price.description
+        self.priceLabel.text = "$" + item.price!.description
         
         if(quantity>0){
             showQuantityView()
@@ -84,13 +84,13 @@ class ItemTableViewCell: UITableViewCell {
     }
     
     @IBAction func plusButtonPressed(_ sender: Any) {
-        let actualQuantity = itemTableViewCellDelegate!.incrementQuantity(id: item.id)
+        let actualQuantity = itemTableViewCellDelegate!.incrementQuantity(id: item.id!)
         quantityLabel.text = String(actualQuantity)
 
     }
     
     @IBAction func minusButtonPressed(_ sender: Any) {
-        let actualQuantity = itemTableViewCellDelegate!.decreaseQuantity(id: item.id)
+        let actualQuantity = itemTableViewCellDelegate!.decreaseQuantity(id: item.id!)
         if(actualQuantity == 0){
             showAddButton()
         }

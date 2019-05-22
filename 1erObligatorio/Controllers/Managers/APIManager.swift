@@ -18,16 +18,16 @@ class APIManager {
     
     func getItems(onCompletionHandler: @escaping(_ result: [Item]?, _ error: Error?) -> Void){
         let itemsUrl = baseUrl+"products"
-        //        Alamofire.request(peopleUrl, method: .get, parameters: nil, encoding: URLEncoding.default, headers: nil).validate().responseArray { (response: DataResponse<[Person]>) in
-        //            switch response.result {
-        //            case .success:
-        //                onCompletionHandler(response.value, nil)
-        //
-        //            case .failure(let error):
-        //                onCompletionHandler(nil, error)
-        //            }
-        //
-        //        }
+        Alamofire.request(itemsUrl, method: .get, parameters: nil, encoding: URLEncoding.default, headers: nil).validate().responseArray { (response: DataResponse<[Item]>) in
+            switch response.result {
+            case .success:
+                onCompletionHandler(response.value, nil)
+
+            case .failure(let error):
+                onCompletionHandler(nil, error)
+            }
+
+        }
     }
     
     func getBanners(onCompletionHandler: @escaping(_ result: [Banner]?, _ error: Error?) -> Void){

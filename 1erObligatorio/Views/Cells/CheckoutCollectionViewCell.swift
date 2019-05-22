@@ -22,7 +22,7 @@ class CheckoutCollectionViewCell: UICollectionViewCell {
         self.selectedItem = selectedItem
         self.itemImageView.image = selectedItem.item.smallImage
         self.nameLabel.text = selectedItem.item.name
-        self.priceLabel.text = "$" + selectedItem.item.price.description
+        self.priceLabel.text = "$" + selectedItem.item.price!.description
         self.unitsLabel.text = String(selectedItem.quantity) + " units"
         alterLayout()
     }

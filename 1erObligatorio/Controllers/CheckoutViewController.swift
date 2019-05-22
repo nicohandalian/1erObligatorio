@@ -106,7 +106,7 @@ extension CheckoutViewController: UICollectionViewDataSource, UICollectionViewDe
         toolBar.removeFromSuperview()
         picker.removeFromSuperview()
         let selItem = trolley.toList[selectIndexPath!.row]
-        trolley.modifyItem(id: selItem.item.id, quantity: selectPicker!)
+        trolley.modifyItem(id: selItem.item.id!, quantity: selectPicker!)
         checkoutCollectionView.reloadData()
         updateTotal()
     }

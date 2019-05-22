@@ -120,7 +120,7 @@ extension IndexViewController: UITableViewDataSource, UITableViewDelegate{
         }
         cell.itemTableViewCellDelegate = self
         let item = currentItems[indexPath.section][indexPath.row]
-        guard let quantity = trolley.findItemQuantity(id: item.id) else{
+        guard let quantity = trolley.findItemQuantity(id: item.id!) else{
             cell.setItem(item: item, quantity: 0)
             return cell
         }
@@ -155,7 +155,7 @@ extension IndexViewController: UISearchBarDelegate{
         
         for i in 0...items.count-1{
             currentItems[i] = items[i].filter({item->Bool in
-                return item.name.lowercased().contains(searchText.lowercased())
+                return item.name!.lowercased().contains(searchText.lowercased())
             })
         }
         itemsTableView.reloadData()

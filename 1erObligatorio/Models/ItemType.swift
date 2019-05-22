@@ -11,5 +11,6 @@ import Foundation
 enum ItemType: String {
     case fruit = "Fruit"
     case veggie = "Veggie"
+    case diary = "Diary"
 }
 

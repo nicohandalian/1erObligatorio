@@ -22,7 +22,7 @@ class Trolley {
     }
     
     func addItem(selItem:SelectedItem) {
-        self.selectedItems[selItem.item.id] = selItem
+        self.selectedItems[selItem.item.id!] = selItem
     }
     
     func findItemQuantity(id:Int) -> Int? {
@@ -41,7 +41,7 @@ class Trolley {
     func getTotalPrice()->Float{
         var total:Float = 0
         for (_,selItem) in selectedItems{
-            total += (Float(selItem.quantity) * selItem.item.price)
+            total += (Float(selItem.quantity) * selItem.item.price!)
         }
         return total
     }

@@ -10,6 +10,7 @@
 		03087A072277B80000370537 /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03087A062277B80000370537 /* ItemTableViewCell.swift */; };
 		031FE50F227A4F27000A464A /* CheckoutCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031FE50E227A4F27000A464A /* CheckoutCollectionViewCell.swift */; };
 		03264230227FE793000038BA /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0326422F227FE793000038BA /* ImageView.swift */; };
+		038835B32294F03400D93212 /* ShoppingHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038835B22294F03400D93212 /* ShoppingHistoryViewController.swift */; };
 		038963EB2293AE5E005705D0 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038963EA2293AE5E005705D0 /* APIManager.swift */; };
 		038963ED2293AE79005705D0 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038963EC2293AE79005705D0 /* AuthenticationManager.swift */; };
 		038963F02293AF59005705D0 /* AuthenticationReponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038963EF2293AF59005705D0 /* AuthenticationReponse.swift */; };
@@ -35,6 +36,7 @@
 		03087A062277B80000370537 /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
 		031FE50E227A4F27000A464A /* CheckoutCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutCollectionViewCell.swift; sourceTree = "<group>"; };
 		0326422F227FE793000038BA /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
+		038835B22294F03400D93212 /* ShoppingHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingHistoryViewController.swift; sourceTree = "<group>"; };
 		038963EA2293AE5E005705D0 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		038963EC2293AE79005705D0 /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		038963EF2293AF59005705D0 /* AuthenticationReponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationReponse.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 				03C4203A2294D72100C5D4FB /* SideMenuTableViewController.swift */,
 				03F35D9322728F7700518847 /* IndexViewController.swift */,
 				03F35D9522728F8900518847 /* CheckoutViewController.swift */,
+				038835B22294F03400D93212 /* ShoppingHistoryViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -318,6 +321,7 @@
 				03DD5B0E22713CBE0044570F /* MainNavigationViewController.swift in Sources */,
 				03F35D9422728F7700518847 /* IndexViewController.swift in Sources */,
 				03087A072277B80000370537 /* ItemTableViewCell.swift in Sources */,
+				038835B32294F03400D93212 /* ShoppingHistoryViewController.swift in Sources */,
 				03DD5B2622713F910044570F /* Banner.swift in Sources */,
 				03DD5B282271402D0044570F /* SelectedItem.swift in Sources */,
 				03DD5B2422713E390044570F /* ItemType.swift in Sources */,
