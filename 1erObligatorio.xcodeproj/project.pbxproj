@@ -13,6 +13,7 @@
 		038963EB2293AE5E005705D0 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038963EA2293AE5E005705D0 /* APIManager.swift */; };
 		038963ED2293AE79005705D0 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038963EC2293AE79005705D0 /* AuthenticationManager.swift */; };
 		038963F02293AF59005705D0 /* AuthenticationReponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038963EF2293AF59005705D0 /* AuthenticationReponse.swift */; };
+		03C4203B2294D72100C5D4FB /* SideMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C4203A2294D72100C5D4FB /* SideMenuTableViewController.swift */; };
 		03CBCC4922752D4700D090DB /* BannerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CBCC4822752D4700D090DB /* BannerCollectionViewCell.swift */; };
 		03DD5B0C22713CBE0044570F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DD5B0B22713CBE0044570F /* AppDelegate.swift */; };
 		03DD5B0E22713CBE0044570F /* MainNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DD5B0D22713CBE0044570F /* MainNavigationViewController.swift */; };
@@ -37,6 +38,7 @@
 		038963EA2293AE5E005705D0 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		038963EC2293AE79005705D0 /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		038963EF2293AF59005705D0 /* AuthenticationReponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationReponse.swift; sourceTree = "<group>"; };
+		03C4203A2294D72100C5D4FB /* SideMenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewController.swift; sourceTree = "<group>"; };
 		03CBCC4822752D4700D090DB /* BannerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCollectionViewCell.swift; sourceTree = "<group>"; };
 		03DD5B0822713CBE0044570F /* 1erObligatorio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 1erObligatorio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03DD5B0B22713CBE0044570F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 			children = (
 				038963EE2293AE89005705D0 /* Managers */,
 				03DD5B0D22713CBE0044570F /* MainNavigationViewController.swift */,
+				03C4203A2294D72100C5D4FB /* SideMenuTableViewController.swift */,
 				03F35D9322728F7700518847 /* IndexViewController.swift */,
 				03F35D9522728F8900518847 /* CheckoutViewController.swift */,
 			);
@@ -263,6 +266,7 @@
 				"${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper/AlamofireObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/SideMenu/SideMenu.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
@@ -272,6 +276,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenu.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -320,6 +325,7 @@
 				03DD5B0C22713CBE0044570F /* AppDelegate.swift in Sources */,
 				031FE50F227A4F27000A464A /* CheckoutCollectionViewCell.swift in Sources */,
 				03F35D9622728F8900518847 /* CheckoutViewController.swift in Sources */,
+				03C4203B2294D72100C5D4FB /* SideMenuTableViewController.swift in Sources */,
 				038963EB2293AE5E005705D0 /* APIManager.swift in Sources */,
 				03264230227FE793000038BA /* ImageView.swift in Sources */,
 				03F35D8C227275CA00518847 /* DataModelManager.swift in Sources */,

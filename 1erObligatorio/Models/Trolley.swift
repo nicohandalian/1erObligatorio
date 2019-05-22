@@ -10,6 +10,7 @@ import Foundation
 
 class Trolley {
     var selectedItems: [Int: SelectedItem] = [:]
+    var date: Date?
     
     var toList:[SelectedItem] {
         get{

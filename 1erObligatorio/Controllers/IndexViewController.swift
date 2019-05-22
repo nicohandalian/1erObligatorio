@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import SideMenu
 
 class IndexViewController: UIViewController{
     
@@ -38,6 +39,7 @@ class IndexViewController: UIViewController{
         
         self.itemsTableView.tableHeaderView = searchBar
         
+        setupSideMenu()
         alterLayout()
         
     }
@@ -50,6 +52,15 @@ class IndexViewController: UIViewController{
         itemsTableView.estimatedSectionHeaderHeight = 50
         searchBar.showsScopeBar = false
         searchBar.placeholder = "Search"
+    }
+    
+    fileprivate func setupSideMenu() {
+        // Define the menus
+        SideMenuManager.default.menuLeftNavigationController = storyboard!.instantiateViewController(withIdentifier: "LeftMenuNavigationController") as? UISideMenuNavigationController
+        
+        SideMenuManager.default.menuAddPanGestureToPresent(toView: self.navigationController!.navigationBar)
+        SideMenuManager.default.menuAddScreenEdgePanGesturesToPresent(toView: self.navigationController!.view)
+        
     }
     
     @IBAction func moveToPage(_ sender: Any) {

@@ -8,5 +8,6 @@ target '1erObligatorio' do
   # Pods for 1erObligatorio
   pod "AlamofireObjectMapper", '5.2.0'
   pod "Kingfisher"
+  pod "SideMenu"
 
 end

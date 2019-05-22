@@ -61,7 +61,7 @@ class APIManager {
     
     
     func postCheckout(onCompletionHandler: @escaping(_ result: [Trolley]?, _ error: Error?) -> Void){
-        let tcheckoutUrl = baseUrl+"checkout"
+        let checkoutUrl = baseUrl+"checkout"
         //        Alamofire.request(peopleUrl, method: .get, parameters: nil, encoding: URLEncoding.default, headers: nil).validate().responseArray { (response: DataResponse<[Person]>) in
         //            switch response.result {
         //            case .success:
