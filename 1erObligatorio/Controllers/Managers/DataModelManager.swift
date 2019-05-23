@@ -11,36 +11,12 @@ import UIKit
 
 class DataModelManager {
     static let shared = DataModelManager()
-    let trolley = Trolley()
+    var trolley = Trolley()
+    
     
     private init() {
     }
     
-    func getItems()->[[Item]] {
-        
-        let grapefruitSmallImage = UIImage(named: "Grapefruit")!
-        let grapefruitBigImage = UIImage(named: "Grapefruit-2")!
-        let grapefruit = Item(id: 1, name: "Grapefruit", type: ItemType.fruit, price: 45, smallImage: grapefruitSmallImage, bigImage: grapefruitBigImage)
-        
-        let avocadoSmallImage = UIImage(named: "Avocado")!
-        let avocadoBigImage = UIImage(named: "Avocado")!
-        let avocado = Item(id: 2, name: "Avocado", type: ItemType.veggie, price: 30, smallImage: avocadoSmallImage, bigImage: avocadoBigImage)
-        
-        let cucumberSmallImage = UIImage(named: "Cucumber")!
-        let cucumberBigImage = UIImage(named: "Cucumber")!
-        let cucumber = Item(id: 3, name: "Cucumber", type: ItemType.veggie, price: 30, smallImage: cucumberSmallImage, bigImage: cucumberBigImage)
-        
-        let kiwiSmallImage = UIImage(named: "kiwi")!
-        let kiwiBigImage = UIImage(named: "Kiwi-2")!
-        let kiwi = Item(id: 4, name: "Kiwi", type: ItemType.fruit, price: 30, smallImage: kiwiSmallImage, bigImage: kiwiBigImage)
-        
-        let watermelonSmallImage = UIImage(named: "Watermelon")!
-        let watermelonBigImage = UIImage(named: "Watermelon-2")!
-        let watermelon = Item(id: 5, name: "Watermelon", type: ItemType.fruit, price: 45, smallImage: watermelonSmallImage, bigImage: watermelonBigImage)
-        
-        let products:[[Item]] = [[grapefruit, watermelon, kiwi],[avocado, cucumber]]
-        return products
-    }
     
     func getBanners()->[Banner] {
         

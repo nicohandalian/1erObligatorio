@@ -14,7 +14,6 @@ class CheckoutViewController: UIViewController {
     @IBOutlet weak var checkoutCollectionView: UICollectionView!
     @IBOutlet weak var checkoutButton: UIButton!
     
-    var items = DataModelManager.shared.getItems()
     var trolley = DataModelManager.shared.getTrolley()
     
     var toolBar = UIToolbar()
@@ -26,7 +25,7 @@ class CheckoutViewController: UIViewController {
         super.viewDidLoad()
         checkoutCollectionView.dataSource = self
         checkoutCollectionView.delegate = self
-        self.updateTotal()
+        updateTotal()
         alterLayout()
     }
     

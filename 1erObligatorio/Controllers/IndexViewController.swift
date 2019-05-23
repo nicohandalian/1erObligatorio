@@ -19,16 +19,16 @@ class IndexViewController: UIViewController{
     @IBOutlet weak var bannerPageControl: UIPageControl!
     
     let banners = DataModelManager.shared.getBanners()
-    let items = DataModelManager.shared.getItems()
-    let itemTypes = DataModelManager.shared.getItemTypes()
+    var items: [Item] = []
+    let itemTypes = [ItemType.diary,ItemType.fruit,ItemType.veggie,ItemType.other]
     let trolley = DataModelManager.shared.getTrolley()
     var currentItems = [[Item]]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        currentItems = items
         
+        fetchItems()
         itemsTableView.dataSource = self
         itemsTableView.delegate = self
         
@@ -37,10 +37,11 @@ class IndexViewController: UIViewController{
         bannersCollectionView.dataSource = self
         bannersCollectionView.delegate = self
         
-        self.itemsTableView.tableHeaderView = searchBar
+        itemsTableView.tableHeaderView = searchBar
         
         setupSideMenu()
         alterLayout()
+        currentItems = loadAllItemsInSections()
         
     }
     
@@ -54,8 +55,46 @@ class IndexViewController: UIViewController{
         searchBar.placeholder = "Search"
     }
     
+    func fetchItems() {
+        
+        APIManager.shared.getItems(){ items, error in
+            
+            if let error = error {
+                print(error.localizedDescription)
+            }
+            
+            if let items = items {
+                self.items = items
+                self.currentItems = self.loadAllItemsInSections()
+                self.itemsTableView.reloadData()
+            }
+        }
+    }
+    
+    func loadAllItemsInSections() -> [[Item]]{
+        var sections:[[Item]] = [[],[],[],[]]
+        for item in items{
+            
+            switch item.type!
+            {
+            case .diary:
+                sections[0].append(item)
+                break
+            case .fruit:
+                sections[1].append(item)
+                break
+            case .veggie:
+                sections[2].append(item)
+                break
+            case .other:
+                sections[3].append(item)
+                break
+            }
+        }
+        return sections
+    }
+    
     fileprivate func setupSideMenu() {
-        // Define the menus
         SideMenuManager.default.menuLeftNavigationController = storyboard!.instantiateViewController(withIdentifier: "LeftMenuNavigationController") as? UISideMenuNavigationController
         
         SideMenuManager.default.menuAddPanGestureToPresent(toView: self.navigationController!.navigationBar)
@@ -111,7 +150,14 @@ extension IndexViewController: UIScrollViewDelegate{
 extension IndexViewController: UITableViewDataSource, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return currentItems[section].count
+        var amount = 0
+        for itemsinsection in currentItems {
+            if amount == section {
+                return itemsinsection.count
+            }
+            amount += 1
+        }
+        return amount
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -129,7 +175,12 @@ extension IndexViewController: UITableViewDataSource, UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return itemTypes[section].rawValue + "s"
+        let type = itemTypes[section].rawValue
+        var typeWithS = itemTypes[section].rawValue + "s"
+        if(type.last! == "y"){
+            typeWithS = itemTypes[section].rawValue.dropLast()+"ies"
+        }
+        return typeWithS
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -148,13 +199,13 @@ extension IndexViewController: UITableViewDataSource, UITableViewDelegate{
 extension IndexViewController: UISearchBarDelegate{
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String){
         guard !searchText.isEmpty else {
-            currentItems = items
+            currentItems = loadAllItemsInSections()
             itemsTableView.reloadData()
             return
         }
         
-        for i in 0...items.count-1{
-            currentItems[i] = items[i].filter({item->Bool in
+        for i in 0...loadAllItemsInSections().count-1{
+            currentItems[i] = loadAllItemsInSections()[i].filter({item->Bool in
                 return item.name!.lowercased().contains(searchText.lowercased())
             })
         }

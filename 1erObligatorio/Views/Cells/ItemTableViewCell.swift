@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 protocol ItemTableViewDelegate {
     func addSelectedItem(item: Item) -> Int
@@ -52,7 +53,9 @@ class ItemTableViewCell: UITableViewCell {
     
     func setItem(item:Item, quantity: Int){
         self.item = item
-        self.itemImageView.image = item.smallImage
+        
+        self.itemImageView.kf.setImage(with: item.imageUrl)
+        
         self.nameLabel.text = item.name
         self.priceLabel.text = "$" + item.price!.description
         

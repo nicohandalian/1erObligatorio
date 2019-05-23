@@ -14,9 +14,21 @@ class Item: Mappable {
     var id: Int?
     var name: String?
     var type: ItemType?
-    var price: Float?
-    var smallImage: UIImage?
-    var bigImage: UIImage?
+    var price: Float?{
+        didSet{
+            price = (price!*100).rounded()/100
+        }
+    }
+    var imageUrl: URL?
+    var stringUrl: String?{
+        didSet{
+            guard let stringUrl = stringUrl else{
+                imageUrl = URL(string: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfUq7tDg_fFFVBh2y25hj1VQ--gJ1v1idoOwwh8Bu9dfbj9R7Mow")
+                return
+            }
+            imageUrl = URL(string: stringUrl)
+        }
+    }
     
     var category: String?{
         didSet{
@@ -24,26 +36,17 @@ class Item: Mappable {
             case "Fruits":
                 type = .fruit
                 break
-            case "Diary":
+            case "Dairy":
                 type = .diary
                 break
-            case "Veggie":
+            case "Veggies":
                 type = .veggie
                 break
             default:
+                type = .other
                 break
             }
         }
-    }
-    
-    
-    init(id:Int, name:String, type:ItemType, price: Float, smallImage: UIImage, bigImage:UIImage) {
-        self.id = id
-        self.name = name
-        self.type = type
-        self.price = price
-        self.smallImage = smallImage
-        self.bigImage = bigImage
     }
     
     required init?(map: Map) {
@@ -55,8 +58,7 @@ class Item: Mappable {
         name <- map["name"]
         category <- map["category"]
         price <- map["price"]
-        smallImage <- map["photoUrl"]
-        bigImage <- map["photoUrl"]
+        stringUrl <- map["photoUrl"]
     }
     
 }
