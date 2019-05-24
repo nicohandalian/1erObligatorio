@@ -7,3 +7,12 @@
 //
 
 import Foundation
+import UIKit
+
+class ShoppingHistoryViewController: UIViewController{
+   
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.navigationItem.setHidesBackButton(true, animated: false)
+    }
+}

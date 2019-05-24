@@ -154,7 +154,7 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="O0q-sb-U6U">
+                            <pageControl hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="O0q-sb-U6U">
                                 <rect key="frame" x="187.66666666666666" y="246.33333333333331" width="39" height="37"/>
                                 <color key="pageIndicatorTintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <color key="currentPageIndicatorTintColor" red="0.0048598507420000003" green="0.096086271109999996" blue="0.57499289509999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -219,6 +219,9 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="hKf-rN-AOF">
+                                <rect key="frame" x="197" y="377" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -228,9 +231,11 @@
                             <constraint firstItem="I1o-Oo-OUV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="LLS-lJ-krH"/>
                             <constraint firstItem="O0q-sb-U6U" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="SSt-jO-4Vk"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="I1o-Oo-OUV" secondAttribute="trailing" id="WG4-dI-c6e"/>
+                            <constraint firstItem="hKf-rN-AOF" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Y6W-bv-CYK"/>
                             <constraint firstItem="I1o-Oo-OUV" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="14" id="a7K-dQ-Nkj"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="mWq-Tf-7sE" secondAttribute="bottom" id="aFh-gU-Og6"/>
                             <constraint firstItem="I1o-Oo-OUV" firstAttribute="bottom" secondItem="O0q-sb-U6U" secondAttribute="top" id="len-JI-uKu"/>
+                            <constraint firstItem="hKf-rN-AOF" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="q6h-Oa-nwK"/>
                             <constraint firstItem="mWq-Tf-7sE" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.6" id="q7f-X8-oyd"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -250,6 +255,7 @@
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="hKf-rN-AOF" id="vWl-AQ-kAb"/>
                         <outlet property="bannerPageControl" destination="O0q-sb-U6U" id="me4-Kb-CWO"/>
                         <outlet property="bannersCollectionView" destination="I1o-Oo-OUV" id="Izt-fg-iQt"/>
                         <outlet property="itemsTableView" destination="mWq-Tf-7sE" id="dhS-bs-hGV"/>
@@ -480,7 +486,7 @@
         <!--Shopping History View Controller-->
         <scene sceneID="cgv-x8-5wu">
             <objects>
-                <viewController id="lVb-Uh-pd2" userLabel="Shopping History View Controller" sceneMemberID="viewController">
+                <viewController id="lVb-Uh-pd2" userLabel="Shopping History View Controller" customClass="ShoppingHistoryViewController" customModule="_erObligatorio" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VUI-ie-5nA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

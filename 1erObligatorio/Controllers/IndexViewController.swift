@@ -17,6 +17,7 @@ class IndexViewController: UIViewController{
     @IBOutlet weak var itemsTableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var bannerPageControl: UIPageControl!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     let banners = DataModelManager.shared.getBanners()
     var items: [Item] = []
@@ -26,7 +27,9 @@ class IndexViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.setHidesBackButton(true, animated: false)
         
+        alterLayout()
         
         fetchItems()
         itemsTableView.dataSource = self
@@ -40,7 +43,6 @@ class IndexViewController: UIViewController{
         itemsTableView.tableHeaderView = searchBar
         
         setupSideMenu()
-        alterLayout()
         currentItems = loadAllItemsInSections()
         
     }
@@ -50,15 +52,22 @@ class IndexViewController: UIViewController{
     }
     
     func alterLayout() {
+        activityIndicator.transform = CGAffineTransform(scaleX: 3.5, y: 3.5)
+        activityIndicator.color = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        
         itemsTableView.estimatedSectionHeaderHeight = 50
+        
         searchBar.showsScopeBar = false
         searchBar.placeholder = "Search"
     }
     
     func fetchItems() {
-        
+        hideElementsInView()
+        activityIndicator.startAnimating()
         APIManager.shared.getItems(){ items, error in
             
+            self.activityIndicator.stopAnimating()
+            self.showElementsInView()
             if let error = error {
                 print(error.localizedDescription)
             }
@@ -71,6 +80,24 @@ class IndexViewController: UIViewController{
         }
     }
     
+    func showElementsInView() {
+        self.view.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        bannersCollectionView.isHidden = false
+        itemsTableView.isHidden = false
+        searchBar.isHidden = false
+        bannerPageControl.isHidden = false
+        bannerPageControl.isEnabled = true
+    }
+    
+    func hideElementsInView() {
+        self.view.backgroundColor = #colorLiteral(red: 0.3236978054, green: 0.1063579395, blue: 0.574860394, alpha: 1)
+        bannersCollectionView.isHidden = true
+        itemsTableView.isHidden = true
+        searchBar.isHidden = true
+        bannerPageControl.isHidden = true
+        bannerPageControl.isEnabled = false
+        
+    }
     func loadAllItemsInSections() -> [[Item]]{
         var sections:[[Item]] = [[],[],[],[]]
         for item in items{
@@ -120,7 +147,7 @@ extension IndexViewController: UICollectionViewDelegate, UICollectionViewDataSou
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         bannerPageControl.numberOfPages = banners.count
-        bannerPageControl.isHidden = !(banners.count > 1)
+        //bannerPageControl.isHidden = !(banners.count > 1)
         return banners.count
     }
     
