@@ -46,32 +46,36 @@ class APIManager {
     
     
     func getTrolleys(onCompletionHandler: @escaping(_ result: [Trolley]?, _ error: Error?) -> Void){
-        let trolleysUrl = baseUrl+"purchases"
-        //        Alamofire.request(peopleUrl, method: .get, parameters: nil, encoding: URLEncoding.default, headers: nil).validate().responseArray { (response: DataResponse<[Person]>) in
-        //            switch response.result {
-        //            case .success:
-        //                onCompletionHandler(response.value, nil)
-        //
-        //            case .failure(let error):
-        //                onCompletionHandler(nil, error)
-        //            }
-        //
-        //        }
+//        let trolleysUrl = baseUrl+"purchases"
+//        Alamofire.request(trolleysUrl, method: .get, parameters: nil, encoding: URLEncoding.default, headers: nil).validate().responseArray { (response: DataResponse<[Trolley]>) in
+//            switch response.result {
+//            case .success:
+//                onCompletionHandler(response.value, nil)
+//
+//            case .failure(let error):
+//                onCompletionHandler(nil, error)
+//            }
+//
+//        }
     }
     
     
     func postCheckout(onCompletionHandler: @escaping(_ result: [Trolley]?, _ error: Error?) -> Void){
-        let checkoutUrl = baseUrl+"checkout"
-        //        Alamofire.request(peopleUrl, method: .get, parameters: nil, encoding: URLEncoding.default, headers: nil).validate().responseArray { (response: DataResponse<[Person]>) in
-        //            switch response.result {
-        //            case .success:
-        //                onCompletionHandler(response.value, nil)
-        //
-        //            case .failure(let error):
-        //                onCompletionHandler(nil, error)
-        //            }
-        //
-        //        }
+//        AuthenticationManager.shared.authenticate(){ response in
+//            let bearer = "Bearer " + response.token
+//            let checkoutUrl = self.baseUrl + "checkout"
+//            Alamofire.request(checkoutUrl, method: .post, parameters: nil, encoding: URLEncoding.default, headers: bearer).validate().responseArray { (response: DataResponse<[Trolley]>) in
+//                switch response.result {
+//                case .success:
+//                    onCompletionHandler(response.value, nil)
+//
+//                case .failure(let error):
+//                    onCompletionHandler(nil, error)
+//                }
+//
+//            }
+//        }
+        
     }
     
 }

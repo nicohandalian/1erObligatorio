@@ -21,7 +21,7 @@ class IndexViewController: UIViewController{
     
     var banners:[Banner] = []
     var items: [Item] = []
-    let itemTypes = [ItemType.diary,ItemType.fruit,ItemType.veggie,ItemType.other]
+    let itemTypes = DataModelManager.shared.getItemTypes()
     let trolley = DataModelManager.shared.getTrolley()
     var currentItems = [[Item]]()
     
@@ -55,6 +55,7 @@ class IndexViewController: UIViewController{
     func alterLayout() {
         activityIndicator.transform = CGAffineTransform(scaleX: 3.5, y: 3.5)
         activityIndicator.color = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        activityIndicator.hidesWhenStopped = true
         
         itemsTableView.estimatedSectionHeaderHeight = 50
         
