@@ -19,7 +19,7 @@ class IndexViewController: UIViewController{
     @IBOutlet weak var bannerPageControl: UIPageControl!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    let banners = DataModelManager.shared.getBanners()
+    var banners:[Banner] = []
     var items: [Item] = []
     let itemTypes = [ItemType.diary,ItemType.fruit,ItemType.veggie,ItemType.other]
     let trolley = DataModelManager.shared.getTrolley()
@@ -32,6 +32,7 @@ class IndexViewController: UIViewController{
         alterLayout()
         
         fetchItems()
+        fetchBanners()
         itemsTableView.dataSource = self
         itemsTableView.delegate = self
         
@@ -76,6 +77,24 @@ class IndexViewController: UIViewController{
                 self.items = items
                 self.currentItems = self.loadAllItemsInSections()
                 self.itemsTableView.reloadData()
+            }
+        }
+    }
+    
+    func fetchBanners() {
+        hideElementsInView()
+        activityIndicator.startAnimating()
+        APIManager.shared.getBanners(){ banners, error in
+            
+            self.activityIndicator.stopAnimating()
+            self.showElementsInView()
+            if let error = error {
+                print(error.localizedDescription)
+            }
+            
+            if let banners = banners {
+                self.banners = banners
+                self.bannersCollectionView.reloadData()
             }
         }
     }
@@ -154,7 +173,7 @@ extension IndexViewController: UICollectionViewDelegate, UICollectionViewDataSou
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = bannersCollectionView.dequeueReusableCell(withReuseIdentifier: "BannerCell", for: indexPath) as! BannerCollectionViewCell
         
-        cell.bannerImageView.image = banners[indexPath.item].picture
+        cell.bannerImageView.kf.setImage(with: banners[indexPath.item].imageUrl)
         cell.bannerImageView.setRoundedCorners()
         cell.bannerTitleLabel.text = banners[indexPath.item].title
         cell.bannerDescriptionLabel.text = banners[indexPath.item].description

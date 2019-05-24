@@ -32,16 +32,16 @@ class APIManager {
     
     func getBanners(onCompletionHandler: @escaping(_ result: [Banner]?, _ error: Error?) -> Void){
         let bannersUrl = baseUrl+"promoted"
-        //        Alamofire.request(peopleUrl, method: .get, parameters: nil, encoding: URLEncoding.default, headers: nil).validate().responseArray { (response: DataResponse<[Person]>) in
-        //            switch response.result {
-        //            case .success:
-        //                onCompletionHandler(response.value, nil)
-        //
-        //            case .failure(let error):
-        //                onCompletionHandler(nil, error)
-        //            }
-        //
-        //        }
+        Alamofire.request(bannersUrl, method: .get, parameters: nil, encoding: URLEncoding.default, headers: nil).validate().responseArray { (response: DataResponse<[Banner]>) in
+            switch response.result {
+            case .success:
+                onCompletionHandler(response.value, nil)
+                
+            case .failure(let error):
+                onCompletionHandler(nil, error)
+            }
+            
+        }
     }
     
     

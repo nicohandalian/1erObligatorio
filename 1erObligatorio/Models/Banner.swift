@@ -8,17 +8,32 @@
 
 import Foundation
 import UIKit
+import ObjectMapper
 
-class Banner {
-    var picture: UIImage
-    var title: String
-    var description: String
-    
-    
-    init(picture:UIImage, title:String,description: String) {
-        self.picture = picture
-        self.title = title
-        self.description = description
+class Banner:Mappable {
+    var imageUrl: URL?
+    var title: String?
+    var description: String?
+    var stringUrl: String?{
+        didSet{
+            guard let stringUrl = stringUrl else{
+                imageUrl = URL(string: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfUq7tDg_fFFVBh2y25hj1VQ--gJ1v1idoOwwh8Bu9dfbj9R7Mow")
+                return
+            }
+            imageUrl = URL(string: stringUrl)
+        }
     }
+    required init?(map: Map) {
+        
+    }
+    
+    func mapping(map: Map) {
+        title <- map["name"]
+        description <- map["description"]
+        stringUrl <- map["photoUrl"]
+    }
+    
+    
+    
     
 }
