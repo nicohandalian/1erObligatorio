@@ -495,9 +495,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="nsJ-vP-sRL">
-                                <rect key="frame" x="0.0" y="147" width="414" height="629"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shopping History" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DS9-d0-6RY">
+                                <rect key="frame" x="20" y="101" width="196" height="29"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="nsJ-vP-sRL">
+                                <rect key="frame" x="10" y="140" width="394" height="712"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ksG-dF-wu8">
                                     <size key="itemSize" width="414" height="96"/>
@@ -507,41 +512,42 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ShoppingHistoryCell" id="5rP-mR-JS7" customClass="ShoppingHistoryCollectionViewCell" customModule="_erObligatorio" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="96"/>
+                                        <rect key="frame" x="-10" y="0.0" width="414" height="96"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="96"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hZ1-Dk-yKB">
-                                                    <rect key="frame" x="59" y="20" width="41" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <rect key="frame" x="59" y="20" width="53.333333333333343" height="27.666666666666671"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Price:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vgG-e5-xh3" userLabel="Total Price:">
-                                                    <rect key="frame" x="15" y="55" width="85" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <rect key="frame" x="12.666666666666664" y="50.666666666666664" width="99.666666666666686" height="25.333333333333336"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MyPrice" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R1a-pB-je0">
-                                                    <rect key="frame" x="109.99999999999999" y="55" width="62.333333333333329" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <rect key="frame" x="122.33333333333331" y="45.333333333333336" width="114.66666666666669" height="36.000000000000007"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MyDate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FZU-FB-8hc">
-                                                    <rect key="frame" x="110" y="20" width="60" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <rect key="frame" x="122.33333333333331" y="20" width="78" height="27.666666666666671"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZB5-Da-XHA">
-                                                    <rect key="frame" x="342" y="30.666666666666671" width="52" height="35"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
+                                                    <rect key="frame" x="290.66666666666669" y="26" width="103.33333333333331" height="44"/>
+                                                    <color key="backgroundColor" red="0.32369780539999998" green="0.1063579395" blue="0.574860394" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="26"/>
                                                     <state key="normal" title="Detail">
-                                                        <color key="titleColor" red="0.32369780539999998" green="0.1063579395" blue="0.574860394" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
                                                     <connections>
                                                         <action selector="showDetailPressed:" destination="5rP-mR-JS7" eventType="touchUpInside" id="ZZC-vd-LMs"/>
@@ -554,11 +560,11 @@
                                             <constraint firstItem="R1a-pB-je0" firstAttribute="leading" secondItem="FZU-FB-8hc" secondAttribute="leading" id="2zQ-BX-OaK"/>
                                             <constraint firstItem="hZ1-Dk-yKB" firstAttribute="leading" secondItem="5rP-mR-JS7" secondAttribute="leading" constant="59" id="914-oO-KgS"/>
                                             <constraint firstAttribute="bottom" secondItem="vgG-e5-xh3" secondAttribute="bottom" constant="20" id="JmI-Ir-38d"/>
-                                            <constraint firstItem="ZB5-Da-XHA" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="5rP-mR-JS7" secondAttribute="leading" constant="342" id="LiK-34-Xqg"/>
                                             <constraint firstItem="FZU-FB-8hc" firstAttribute="leading" secondItem="hZ1-Dk-yKB" secondAttribute="trailing" constant="10" id="MB4-9w-FBv"/>
                                             <constraint firstItem="FZU-FB-8hc" firstAttribute="centerY" secondItem="hZ1-Dk-yKB" secondAttribute="centerY" id="Mpc-MO-r7h"/>
                                             <constraint firstItem="hZ1-Dk-yKB" firstAttribute="trailing" secondItem="vgG-e5-xh3" secondAttribute="trailing" id="RJQ-wc-QGR"/>
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="R1a-pB-je0" secondAttribute="trailing" constant="24" id="SWd-aI-Kdi"/>
+                                            <constraint firstItem="ZB5-Da-XHA" firstAttribute="width" secondItem="5rP-mR-JS7" secondAttribute="width" multiplier="1:4" id="XBm-fB-bwg"/>
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="FZU-FB-8hc" secondAttribute="trailing" constant="24" id="fyh-fN-gC4"/>
                                             <constraint firstItem="R1a-pB-je0" firstAttribute="centerY" secondItem="vgG-e5-xh3" secondAttribute="centerY" id="hSf-nM-iNs"/>
                                             <constraint firstItem="vgG-e5-xh3" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="5rP-mR-JS7" secondAttribute="leading" constant="10" id="uCL-V5-I10"/>
@@ -567,28 +573,34 @@
                                         </constraints>
                                         <connections>
                                             <outlet property="dateLabel" destination="FZU-FB-8hc" id="1JW-tA-Pip"/>
+                                            <outlet property="detailBtn" destination="ZB5-Da-XHA" id="umQ-nd-dMW"/>
                                             <outlet property="totalPriceLabel" destination="R1a-pB-je0" id="jGv-DV-stc"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shopping History" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DS9-d0-6RY">
-                                <rect key="frame" x="20" y="101" width="196" height="29"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="rtQ-RR-gi0">
+                                <rect key="frame" x="197" y="465" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="DS9-d0-6RY" firstAttribute="leading" secondItem="2xk-s7-1Ke" secondAttribute="leading" constant="20" id="3uz-am-HfS"/>
+                            <constraint firstItem="rtQ-RR-gi0" firstAttribute="centerY" secondItem="2xk-s7-1Ke" secondAttribute="centerY" id="B47-xU-t0J"/>
+                            <constraint firstItem="nsJ-vP-sRL" firstAttribute="leading" secondItem="2xk-s7-1Ke" secondAttribute="leading" constant="10" id="Dlz-Iz-GYw"/>
                             <constraint firstItem="DS9-d0-6RY" firstAttribute="top" secondItem="2xk-s7-1Ke" secondAttribute="top" constant="13" id="GDS-E7-iZY"/>
                             <constraint firstItem="2xk-s7-1Ke" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="DS9-d0-6RY" secondAttribute="trailing" symbolic="YES" id="Jli-vm-gEJ"/>
+                            <constraint firstItem="nsJ-vP-sRL" firstAttribute="top" secondItem="DS9-d0-6RY" secondAttribute="bottom" constant="10" id="PPU-5G-iwn"/>
+                            <constraint firstItem="2xk-s7-1Ke" firstAttribute="trailing" secondItem="nsJ-vP-sRL" secondAttribute="trailing" constant="10" id="dUL-C9-wAJ"/>
+                            <constraint firstItem="rtQ-RR-gi0" firstAttribute="centerX" secondItem="2xk-s7-1Ke" secondAttribute="centerX" id="fTN-kx-k00"/>
+                            <constraint firstItem="2xk-s7-1Ke" firstAttribute="bottom" secondItem="nsJ-vP-sRL" secondAttribute="bottom" constant="10" id="xja-bo-s62"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2xk-s7-1Ke"/>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="rtQ-RR-gi0" id="wIt-0t-Yvb"/>
                         <outlet property="shoppingHistoryCollectionView" destination="nsJ-vP-sRL" id="ffm-XO-aiz"/>
+                        <outlet property="shoppingHistoryTitleLabel" destination="DS9-d0-6RY" id="jDh-bE-SiC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rbu-uR-7ZP" userLabel="First Responder" sceneMemberID="firstResponder"/>

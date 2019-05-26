@@ -11,7 +11,9 @@ import UIKit
 
 class ShoppingHistoryViewController: UIViewController{
     
+    @IBOutlet weak var shoppingHistoryTitleLabel: UILabel!
     @IBOutlet weak var shoppingHistoryCollectionView: UICollectionView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var purchases:[Trolley] = []
 
@@ -19,17 +21,29 @@ class ShoppingHistoryViewController: UIViewController{
         super.viewDidLoad()
         shoppingHistoryCollectionView.dataSource = self
         shoppingHistoryCollectionView.delegate = self
-        
-        self.navigationItem.setHidesBackButton(true, animated: false)
+        alterLayout()
         
         
         fetchPurchases()
     }
+    
+    
+    func alterLayout() {
+        self.navigationItem.setHidesBackButton(true, animated: false)
+        
+        activityIndicator.transform = CGAffineTransform(scaleX: 3.5, y: 3.5)
+        activityIndicator.color = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        activityIndicator.hidesWhenStopped = true
+        
+    }
+    
     func fetchPurchases(){
+        hideElementsInView()
+        activityIndicator.startAnimating()
         APIManager.shared.getPurchases(){ purchases, error in
             
-//            self.activityIndicator.stopAnimating()
-//            self.showElementsInView()
+            self.activityIndicator.stopAnimating()
+            self.showElementsInView()
             if let error = error {
                 print(error.localizedDescription)
             }
@@ -39,6 +53,20 @@ class ShoppingHistoryViewController: UIViewController{
                 self.shoppingHistoryCollectionView.reloadData()
             }
         }
+    }
+    
+    
+    func showElementsInView() {
+        self.view.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        shoppingHistoryTitleLabel.isHidden = false
+        shoppingHistoryCollectionView.isHidden = false
+    }
+    
+    func hideElementsInView() {
+        self.view.backgroundColor = #colorLiteral(red: 0.3236978054, green: 0.1063579395, blue: 0.574860394, alpha: 1)
+        shoppingHistoryTitleLabel.isHidden = true
+        shoppingHistoryCollectionView.isHidden = true
+        
     }
 }
 
@@ -50,13 +78,29 @@ extension ShoppingHistoryViewController: UICollectionViewDataSource, UICollectio
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = shoppingHistoryCollectionView.dequeueReusableCell(withReuseIdentifier: "ShoppingHistoryCell", for: indexPath) as! ShoppingHistoryCollectionViewCell
+        cell.alterLayout()
         
         let trolley = purchases[indexPath.row]
-        
         cell.setPurchase(trolley: trolley)
         
         return cell
     }
     
-    
+    // change background color when user touches cell
+    func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
+        for cell in collectionView.visibleCells{
+            cell.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        }
+        let cell = collectionView.cellForItem(at: indexPath)
+        cell?.backgroundColor = #colorLiteral(red: 0.5818830132, green: 0.2156915367, blue: 1, alpha: 0.3781571062)
+    }
 }
+
+
+extension ShoppingHistoryViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.frame.width, height: (collectionView.frame.height/7))
+    }
+}
+
+
