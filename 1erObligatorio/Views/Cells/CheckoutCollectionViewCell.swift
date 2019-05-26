@@ -16,14 +16,13 @@ class CheckoutCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var priceLabel: UILabel!
     
     var selectedItem: SelectedItem!
-    var trolley =  DataModelManager.shared.getTrolley()
     
     func setSelectedItem(selectedItem: SelectedItem){
         self.selectedItem = selectedItem
-        self.itemImageView.kf.setImage(with: selectedItem.item.imageUrl)
-        self.nameLabel.text = selectedItem.item.name
-        self.priceLabel.text = "$" + selectedItem.item.price!.description
-        self.unitsLabel.text = String(selectedItem.quantity) + " units"
+        self.itemImageView.kf.setImage(with: selectedItem.item!.imageUrl)
+        self.nameLabel.text = selectedItem.item!.name
+        self.priceLabel.text = "$" + selectedItem.item!.price!.description
+        self.unitsLabel.text = String(selectedItem.quantity!) + " units"
         alterLayout()
     }
     

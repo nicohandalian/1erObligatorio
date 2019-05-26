@@ -17,7 +17,7 @@ class APIManager {
   
     
     func getItems(onCompletionHandler: @escaping(_ result: [Item]?, _ error: Error?) -> Void){
-        let itemsUrl = baseUrl+"products"
+        let itemsUrl = baseUrl + "products"
         Alamofire.request(itemsUrl, method: .get, parameters: nil, encoding: URLEncoding.default, headers: nil).validate().responseArray { (response: DataResponse<[Item]>) in
             switch response.result {
             case .success:
@@ -31,7 +31,7 @@ class APIManager {
     }
     
     func getBanners(onCompletionHandler: @escaping(_ result: [Banner]?, _ error: Error?) -> Void){
-        let bannersUrl = baseUrl+"promoted"
+        let bannersUrl = baseUrl + "promoted"
         Alamofire.request(bannersUrl, method: .get, parameters: nil, encoding: URLEncoding.default, headers: nil).validate().responseArray { (response: DataResponse<[Banner]>) in
             switch response.result {
             case .success:
@@ -45,26 +45,31 @@ class APIManager {
     }
     
     
-    func getTrolleys(onCompletionHandler: @escaping(_ result: [Trolley]?, _ error: Error?) -> Void){
-//        let trolleysUrl = baseUrl+"purchases"
-//        Alamofire.request(trolleysUrl, method: .get, parameters: nil, encoding: URLEncoding.default, headers: nil).validate().responseArray { (response: DataResponse<[Trolley]>) in
-//            switch response.result {
-//            case .success:
-//                onCompletionHandler(response.value, nil)
-//
-//            case .failure(let error):
-//                onCompletionHandler(nil, error)
-//            }
-//
-//        }
+    func getPurchases(onCompletionHandler: @escaping(_ result: [Trolley]?, _ error: Error?) -> Void){
+        let purchasesUrl = baseUrl + "purchases"
+        AuthenticationManager.shared.authenticate { (authenticationResponse) in
+            let bearer = "Bearer " + authenticationResponse.token
+            let headers: HTTPHeaders = ["Authorization" : bearer]
+            
+            Alamofire.request(purchasesUrl, method: .get, parameters: nil, encoding: URLEncoding.default, headers: headers).validate().responseArray { (response: DataResponse<[Trolley]>) in
+                switch response.result {
+                case .success:
+                    onCompletionHandler(response.value, nil)
+                    
+                case .failure(let error):
+                    onCompletionHandler(nil, error)
+                }
+                
+            }
+            
+        }
     }
     
     
     func postCheckout(json: Any, onCompletion: @escaping (String?, Error?) -> Void) {
-        let checkoutUrl = baseUrl+"checkout"
+        let checkoutUrl = baseUrl + "checkout"
         
         AuthenticationManager.shared.authenticate { (authenticationResponse) in
-
             let bearer = "Bearer " + authenticationResponse.token
             let headers: HTTPHeaders = ["Authorization" : bearer, "content-type":"application/json"]
             let parameters: [String:Any] = ["cart": json]

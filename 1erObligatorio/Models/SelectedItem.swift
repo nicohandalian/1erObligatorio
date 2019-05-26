@@ -7,15 +7,25 @@
 //
 
 import Foundation
+import ObjectMapper
 
-class SelectedItem {
-    var item: Item
-    var quantity: Int
+class SelectedItem: Mappable {
+    
+    var item: Item?
+    var quantity: Int?
     
     
     init(item:Item, quantity:Int) {
         self.item = item
         self.quantity = quantity
+    }
+    
+    required init?(map: Map) {
+    }
+    
+    func mapping(map: Map) {
+        item <- map["product"]
+        quantity <- map["quantity"]
     }
     
 }

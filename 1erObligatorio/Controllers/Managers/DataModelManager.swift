@@ -19,7 +19,7 @@ class DataModelManager {
     func postCheckout(onCompletion: @escaping (String?, Error?) -> Void) {
         var itemsToPurchase: [PurchasedItem] = []
         trolley.selectedItems.forEach { (_, selectedItem) in
-            let itemToPurchase = PurchasedItem(id: selectedItem.item.id!, quantity: selectedItem.quantity)
+            let itemToPurchase = PurchasedItem(id: selectedItem.item!.id!, quantity: selectedItem.quantity!)
             itemsToPurchase.append(itemToPurchase)
         }
         APIManager.shared.postCheckout(json: itemsToPurchase.toJSON(), onCompletion: { (response: String?, error: Error?) in
