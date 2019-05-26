@@ -20,13 +20,23 @@ class CheckoutViewController: UIViewController {
     var picker = UIPickerView()
     var selectPicker: Int?
     var selectIndexPath:IndexPath?
-    
+    var readOnly: Bool = false
+
     override func viewDidLoad() {
         super.viewDidLoad()
         checkoutCollectionView.dataSource = self
         checkoutCollectionView.delegate = self
         updateTotal()
         alterLayout()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        if(readOnly) {
+            checkoutButton.isHidden = true
+            checkoutButton.isEnabled = false
+        }
+        
     }
     
     func updateTotal(){
@@ -93,23 +103,26 @@ extension CheckoutViewController: UICollectionViewDataSource, UICollectionViewDe
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.selectIndexPath = indexPath
-        
-        picker.removeFromSuperview()
-        toolBar.removeFromSuperview()
-        picker = UIPickerView.init()
-        picker.delegate = self
-        picker.backgroundColor = UIColor.white
-        picker.setValue(UIColor.black, forKey: "textColor")
-        picker.autoresizingMask = .flexibleWidth
-        picker.contentMode = .center
-        picker.frame = CGRect.init(x: 0.0, y: UIScreen.main.bounds.size.height - 300, width: UIScreen.main.bounds.size.width, height: 300)
-        self.view.addSubview(picker)
-        
-        toolBar = UIToolbar.init(frame: CGRect.init(x: 0.0, y: UIScreen.main.bounds.size.height - 300, width: UIScreen.main.bounds.size.width, height: 50))
-        toolBar.barStyle = .default
-        toolBar.items = [UIBarButtonItem.init(title: "Done", style: .done, target: self, action: #selector(onDoneButtonTapped))]
-        self.view.addSubview(toolBar)
+        if(!readOnly){
+            self.selectIndexPath = indexPath
+            
+            picker.removeFromSuperview()
+            toolBar.removeFromSuperview()
+            picker = UIPickerView.init()
+            picker.delegate = self
+            picker.backgroundColor = UIColor.white
+            picker.setValue(UIColor.black, forKey: "textColor")
+            picker.autoresizingMask = .flexibleWidth
+            picker.contentMode = .center
+            picker.frame = CGRect.init(x: 0.0, y: UIScreen.main.bounds.size.height - 300, width: UIScreen.main.bounds.size.width, height: 300)
+            self.view.addSubview(picker)
+            
+            toolBar = UIToolbar.init(frame: CGRect.init(x: 0.0, y: UIScreen.main.bounds.size.height - 300, width: UIScreen.main.bounds.size.width, height: 50))
+            toolBar.barStyle = .default
+            toolBar.items = [UIBarButtonItem.init(title: "Done", style: .done, target: self, action: #selector(onDoneButtonTapped))]
+            self.view.addSubview(toolBar)
+            
+        }
     }
     
     @objc func onDoneButtonTapped(){

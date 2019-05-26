@@ -21,12 +21,17 @@ class ShoppingHistoryViewController: UIViewController{
         super.viewDidLoad()
         shoppingHistoryCollectionView.dataSource = self
         shoppingHistoryCollectionView.delegate = self
+        
         alterLayout()
-        
-        
         fetchPurchases()
     }
     
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let checkoutViewController = segue.destination as? CheckoutViewController {
+            checkoutViewController.readOnly = true
+        }
+    }
     
     func alterLayout() {
         self.navigationItem.setHidesBackButton(true, animated: false)
@@ -86,7 +91,6 @@ extension ShoppingHistoryViewController: UICollectionViewDataSource, UICollectio
         return cell
     }
     
-    // change background color when user touches cell
     func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
         for cell in collectionView.visibleCells{
             cell.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)

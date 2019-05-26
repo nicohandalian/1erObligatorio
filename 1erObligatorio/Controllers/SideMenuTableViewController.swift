@@ -1,9 +1,9 @@
 //
-//  SideMenuTableViewController.swift
-//  SideMenu
+//  ShoppingHistoryViewController.swift
+//  1erObligatorio
 //
-//  Created by Jon Kent on 4/5/16.
-//  Copyright © 2016 CocoaPods. All rights reserved.
+//  Created by Nicolás Handalian on 5/21/19.
+//  Copyright © 2019 Nicolás Handalian. All rights reserved.
 //
 
 import Foundation
