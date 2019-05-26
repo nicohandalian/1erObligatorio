@@ -32,6 +32,7 @@
 		03F35D9622728F8900518847 /* CheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F35D9522728F8900518847 /* CheckoutViewController.swift */; };
 		03FD06C6229A2506008A92AF /* PurchasedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FD06C5229A2506008A92AF /* PurchasedItem.swift */; };
 		03FD06C8229A3DA1008A92AF /* ShoppingHistoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FD06C7229A3DA1008A92AF /* ShoppingHistoryCollectionViewCell.swift */; };
+		03FD06CA229A538A008A92AF /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FD06C9229A538A008A92AF /* Date.swift */; };
 		A49558826B3C0E22B46FD00F /* Pods_1erObligatorio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C06DB91872F3932FF99331C /* Pods_1erObligatorio.framework */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +64,7 @@
 		03F35D9522728F8900518847 /* CheckoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutViewController.swift; sourceTree = "<group>"; };
 		03FD06C5229A2506008A92AF /* PurchasedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasedItem.swift; sourceTree = "<group>"; };
 		03FD06C7229A3DA1008A92AF /* ShoppingHistoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingHistoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		03FD06C9229A538A008A92AF /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		1C06DB91872F3932FF99331C /* Pods_1erObligatorio.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_1erObligatorio.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E057A3B30C8A517CF36DC7E /* Pods-1erObligatorio.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-1erObligatorio.debug.xcconfig"; path = "Target Support Files/Pods-1erObligatorio/Pods-1erObligatorio.debug.xcconfig"; sourceTree = "<group>"; };
 		F5E9703496E9482445636318 /* Pods-1erObligatorio.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-1erObligatorio.release.xcconfig"; path = "Target Support Files/Pods-1erObligatorio/Pods-1erObligatorio.release.xcconfig"; sourceTree = "<group>"; };
@@ -171,10 +173,11 @@
 		03DD5B2022713D440044570F /* SupportedFiles */ = {
 			isa = PBXGroup;
 			children = (
+				03DD5B1222713CBE0044570F /* Assets.xcassets */,
 				0326422F227FE793000038BA /* ImageView.swift */,
 				03DD5B0B22713CBE0044570F /* AppDelegate.swift */,
-				03DD5B1222713CBE0044570F /* Assets.xcassets */,
 				0387383322977A7000C173C4 /* CustomDateTransform.swift */,
+				03FD06C9229A538A008A92AF /* Date.swift */,
 			);
 			path = SupportedFiles;
 			sourceTree = "<group>";
@@ -324,6 +327,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03FD06CA229A538A008A92AF /* Date.swift in Sources */,
 				03FD06C8229A3DA1008A92AF /* ShoppingHistoryCollectionViewCell.swift in Sources */,
 				03DD5B2222713D880044570F /* Item.swift in Sources */,
 				038963ED2293AE79005705D0 /* AuthenticationManager.swift in Sources */,

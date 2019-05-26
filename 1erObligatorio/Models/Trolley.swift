@@ -29,10 +29,12 @@ class Trolley: Mappable {
     }
     
     required init?(map: Map) {
+        if map.JSON["date"] == nil { return nil }
+        if map.JSON["products"] == nil { return nil }
     }
     
     func mapping(map: Map) {
-        date <- map["date"]
+        date <- (map["date"], CustomDateTransform())
         purchasesList <- map["products"]
     }
     

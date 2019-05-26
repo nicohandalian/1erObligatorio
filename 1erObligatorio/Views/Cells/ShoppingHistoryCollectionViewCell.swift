@@ -18,7 +18,7 @@ class ShoppingHistoryCollectionViewCell: UICollectionViewCell {
     
     func setPurchase(trolley: Trolley){
         purchase = trolley
-        dateLabel.text = "1"
+        dateLabel.text = trolley.date!.toString()
         totalPriceLabel.text = "$" + trolley.getTotalPrice().description
     }
     
