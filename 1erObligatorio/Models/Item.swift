@@ -50,7 +50,9 @@ class Item: Mappable {
     }
     
     required init?(map: Map) {
-        
+        if map.JSON["id"] == nil { return nil }
+        if map.JSON["name"] == nil { return nil }
+        if map.JSON["price"] == nil { return nil }
     }
     
     func mapping(map: Map) {

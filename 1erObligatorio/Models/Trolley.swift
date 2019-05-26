@@ -43,7 +43,8 @@ class Trolley {
         for (_,selItem) in selectedItems{
             total += (Float(selItem.quantity) * selItem.item.price!)
         }
-        return total
+
+        return (total*100).rounded()/100
     }
     
     func clear(){

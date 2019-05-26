@@ -60,22 +60,24 @@ class APIManager {
     }
     
     
-    func postCheckout(onCompletionHandler: @escaping(_ result: [Trolley]?, _ error: Error?) -> Void){
-//        AuthenticationManager.shared.authenticate(){ response in
-//            let bearer = "Bearer " + response.token
-//            let checkoutUrl = self.baseUrl + "checkout"
-//            Alamofire.request(checkoutUrl, method: .post, parameters: nil, encoding: URLEncoding.default, headers: bearer).validate().responseArray { (response: DataResponse<[Trolley]>) in
-//                switch response.result {
-//                case .success:
-//                    onCompletionHandler(response.value, nil)
-//
-//                case .failure(let error):
-//                    onCompletionHandler(nil, error)
-//                }
-//
-//            }
-//        }
+    func postCheckout(json: Any, onCompletion: @escaping (String?, Error?) -> Void) {
+        let checkoutUrl = baseUrl+"checkout"
         
+        AuthenticationManager.shared.authenticate { (authenticationResponse) in
+
+            let bearer = "Bearer " + authenticationResponse.token
+            let headers: HTTPHeaders = ["Authorization" : bearer, "content-type":"application/json"]
+            let parameters: [String:Any] = ["cart": json]
+            
+            Alamofire.request(checkoutUrl, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).validate().responseString(completionHandler: { (response) in
+                switch response.result {
+                case .success:
+                    onCompletion(response.result.value, nil)
+                case .failure(let error):
+                    onCompletion(nil, error)
+                }
+            })
+        }
     }
     
 }

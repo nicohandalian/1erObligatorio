@@ -52,11 +52,22 @@ class CheckoutViewController: UIViewController {
             self.present(failCheckoutAlert, animated: true)
         }
         else{
-            let checkoutAlert = UIAlertController(title: "Successful checkout", message: "Your purchase has been made successfully.", preferredStyle: .alert)
-            
-            checkoutAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: indexHandler))
-            
-            self.present(checkoutAlert, animated: true)
+            DataModelManager.shared.postCheckout() { (okMessage, error) in
+                if let error = error {
+                    let errorCheckoutAlert = UIAlertController(title: "Error at checkout!", message: error.localizedDescription, preferredStyle: .alert)
+                    errorCheckoutAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                    self.present(errorCheckoutAlert, animated: true, completion: nil)
+                }
+                
+                if let okMessage = okMessage {
+                    // Show alert that the transaction was succesful
+                    let checkoutAlert = UIAlertController(title: "Successful checkout!", message: okMessage, preferredStyle: .alert)
+                    
+                    checkoutAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: self.indexHandler))
+                    
+                    self.present(checkoutAlert, animated: true)
+                }
+            }
             
         }
         
