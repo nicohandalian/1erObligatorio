@@ -10,17 +10,18 @@ import Foundation
 import UIKit
 
 class CheckoutViewController: UIViewController {
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var totalPriceLabel: UILabel!
     @IBOutlet weak var checkoutCollectionView: UICollectionView!
     @IBOutlet weak var checkoutButton: UIButton!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    var trolley = DataModelManager.shared.getTrolley()
-    
+    public var trolley = DataModelManager.shared.getTrolley()
     var toolBar = UIToolbar()
     var picker = UIPickerView()
     var selectPicker: Int?
     var selectIndexPath:IndexPath?
-    var readOnly: Bool = false
+    var readOnly = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,12 +32,15 @@ class CheckoutViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
         if(readOnly) {
+            titleLabel.text! = "Purchase Detail"
             checkoutButton.isHidden = true
             checkoutButton.isEnabled = false
         }
-        
+    }
+    
+    func setTrolleyToShow(trolley: Trolley){
+        self.trolley = trolley
     }
     
     func updateTotal(){
@@ -44,45 +48,61 @@ class CheckoutViewController: UIViewController {
     }
     
     func alterLayout(){
+        activityIndicator.transform = CGAffineTransform(scaleX: 3.5, y: 3.5)
+        activityIndicator.color = #colorLiteral(red: 0.3236978054, green: 0.1063579395, blue: 0.574860394, alpha: 1)
+        activityIndicator.hidesWhenStopped = true
+        
         checkoutButton.layer.cornerRadius = 15
         checkoutButton.layer.borderWidth = 2
         checkoutButton.layer.borderColor = #colorLiteral(red: 0.3236978054, green: 0.1063579395, blue: 0.574860394, alpha: 1)
     }
+    
     func indexHandler(alert: UIAlertAction!){
         trolley.clear()
         self.navigationController?.popViewController(animated: true)
     }
     
+    func blockElementsInView(){
+        self.view.backgroundColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+        checkoutCollectionView.isHidden = true
+        checkoutButton.isHidden = true
+        checkoutButton.isEnabled = false
+    }
+    
+    func unblockElementsInView(){
+        self.view.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        checkoutCollectionView.isHidden = false
+        checkoutButton.isHidden = false
+        checkoutButton.isEnabled = true
+        
+    }
     
     @IBAction func checkoutButtonPressed(_ sender: Any) {
         if(trolley.isEmpty()){
-            let failCheckoutAlert = UIAlertController(title: "Failed at checkout", message: "You have to select at least one item to checkout.", preferredStyle: .alert)
-            
-            failCheckoutAlert.addAction(UIAlertAction(title: "OK", style: .default,handler: nil))
-            self.present(failCheckoutAlert, animated: true)
+            let emptyCheckoutAlert = UIAlertController(title: "Failed at checkout", message: "You have to select at least one item to checkout.", preferredStyle: .alert)
+            emptyCheckoutAlert.addAction(UIAlertAction(title: "OK", style: .default,handler: nil))
+            self.present(emptyCheckoutAlert, animated: true)
         }
         else{
+            blockElementsInView()
+            activityIndicator.startAnimating()
             DataModelManager.shared.postCheckout() { (okMessage, error) in
+                self.activityIndicator.stopAnimating()
+                self.unblockElementsInView()
                 if let error = error {
-                    let errorCheckoutAlert = UIAlertController(title: "Error at checkout!", message: error.localizedDescription, preferredStyle: .alert)
+                    let errorCheckoutAlert = UIAlertController(title: "Failed at checkout", message: error.localizedDescription, preferredStyle: .alert)
                     errorCheckoutAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
                     self.present(errorCheckoutAlert, animated: true, completion: nil)
                 }
                 
                 if let okMessage = okMessage {
-                    // Show alert that the transaction was succesful
                     let checkoutAlert = UIAlertController(title: "Successful checkout!", message: okMessage, preferredStyle: .alert)
-                    
                     checkoutAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: self.indexHandler))
-                    
                     self.present(checkoutAlert, animated: true)
                 }
             }
-            
         }
-        
     }
-    
 }
 
 extension CheckoutViewController: UICollectionViewDataSource, UICollectionViewDelegate {

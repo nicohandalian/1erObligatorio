@@ -16,6 +16,8 @@ class ShoppingHistoryViewController: UIViewController{
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var purchases:[Trolley] = []
+    var selectedPurchase: Trolley?
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +32,7 @@ class ShoppingHistoryViewController: UIViewController{
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let checkoutViewController = segue.destination as? CheckoutViewController {
             checkoutViewController.readOnly = true
+//            checkoutViewController.setTrolleyToShow(trolley: selectedPurchase!)
         }
     }
     
@@ -50,7 +53,9 @@ class ShoppingHistoryViewController: UIViewController{
             self.activityIndicator.stopAnimating()
             self.showElementsInView()
             if let error = error {
-                print(error.localizedDescription)
+                let errorPurchaseAlert = UIAlertController(title: "Failed loading purchases", message: error.localizedDescription, preferredStyle: .alert)
+                errorPurchaseAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                self.present(errorPurchaseAlert, animated: true, completion: nil)
             }
             
             if let purchases = purchases {
@@ -87,7 +92,7 @@ extension ShoppingHistoryViewController: UICollectionViewDataSource, UICollectio
         
         let trolley = purchases[indexPath.row]
         cell.setPurchase(trolley: trolley)
-        
+        cell.shoppingHistoryCollectionViewDelegate = self
         return cell
     }
     
@@ -100,11 +105,15 @@ extension ShoppingHistoryViewController: UICollectionViewDataSource, UICollectio
     }
 }
 
-
 extension ShoppingHistoryViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.width, height: (collectionView.frame.height/7))
     }
 }
 
-
+extension ShoppingHistoryViewController: ShoppingHistoryCollectionViewDelegate {
+    func showPurchaseDetail(purchase: Trolley) {
+        self.selectedPurchase = purchase
+        performSegue(withIdentifier: "DetailSegue", sender: self)
+    }
+}

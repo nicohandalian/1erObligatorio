@@ -71,7 +71,9 @@ class IndexViewController: UIViewController{
             self.activityIndicator.stopAnimating()
             self.showElementsInView()
             if let error = error {
-                print(error.localizedDescription)
+                let errorProductAlert = UIAlertController(title: "Failed loading products", message: error.localizedDescription, preferredStyle: .alert)
+                errorProductAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                self.present(errorProductAlert, animated: true, completion: nil)
             }
             
             if let items = items {
@@ -90,7 +92,9 @@ class IndexViewController: UIViewController{
             self.activityIndicator.stopAnimating()
             self.showElementsInView()
             if let error = error {
-                print(error.localizedDescription)
+                let errorBannersAlert = UIAlertController(title: "Failed loading banners", message: error.localizedDescription, preferredStyle: .alert)
+                errorBannersAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                self.present(errorBannersAlert, animated: true, completion: nil)
             }
             
             if let banners = banners {
@@ -167,7 +171,6 @@ extension IndexViewController: UICollectionViewDelegate, UICollectionViewDataSou
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         bannerPageControl.numberOfPages = banners.count
-        //bannerPageControl.isHidden = !(banners.count > 1)
         return banners.count
     }
     
@@ -258,7 +261,6 @@ extension IndexViewController: UISearchBarDelegate{
         }
         itemsTableView.reloadData()
     }
-    
 }
 
 extension IndexViewController: UICollectionViewDelegateFlowLayout{
@@ -268,7 +270,6 @@ extension IndexViewController: UICollectionViewDelegateFlowLayout{
     }
     
 }
-
 
 extension IndexViewController: ItemTableViewDelegate{
     func addSelectedItem(item: Item) -> Int {
@@ -302,6 +303,4 @@ extension IndexViewController: ItemTableViewDelegate{
         return quantity
         
     }
-    
-    
 }

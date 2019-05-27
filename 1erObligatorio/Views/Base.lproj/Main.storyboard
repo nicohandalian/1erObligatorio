@@ -376,6 +376,9 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="PEC-5c-jh8">
+                                <rect key="frame" x="197" y="377" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -385,8 +388,10 @@
                             <constraint firstItem="RFN-Vb-IBW" firstAttribute="leading" secondItem="bqo-M2-cC8" secondAttribute="leading" constant="10" id="Aje-fk-a8Y"/>
                             <constraint firstItem="EzP-3S-Vrc" firstAttribute="bottom" secondItem="weI-Pn-MFk" secondAttribute="top" constant="-20" id="CBL-xg-gFh"/>
                             <constraint firstItem="RFN-Vb-IBW" firstAttribute="top" secondItem="36S-bz-478" secondAttribute="bottom" constant="30" id="KGJ-fs-fOH"/>
+                            <constraint firstItem="PEC-5c-jh8" firstAttribute="centerX" secondItem="bqo-M2-cC8" secondAttribute="centerX" id="N9B-1Z-H8Y"/>
                             <constraint firstItem="36S-bz-478" firstAttribute="leading" secondItem="bqo-M2-cC8" secondAttribute="leading" constant="10" id="QMc-rC-wQk"/>
                             <constraint firstItem="0I7-Dn-rcx" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="EzP-3S-Vrc" secondAttribute="trailing" constant="8" symbolic="YES" id="Ryk-sI-P8g"/>
+                            <constraint firstItem="PEC-5c-jh8" firstAttribute="centerY" secondItem="bqo-M2-cC8" secondAttribute="centerY" id="XNn-QE-Lou"/>
                             <constraint firstItem="bqo-M2-cC8" firstAttribute="bottom" secondItem="weI-Pn-MFk" secondAttribute="bottom" constant="30" id="ebd-g2-cC4"/>
                             <constraint firstItem="bqo-M2-cC8" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="36S-bz-478" secondAttribute="trailing" symbolic="YES" id="fzo-FF-LQZ"/>
                             <constraint firstItem="RFN-Vb-IBW" firstAttribute="bottom" secondItem="EzP-3S-Vrc" secondAttribute="top" constant="-30" id="keI-yK-2jz"/>
@@ -401,8 +406,10 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="PEC-5c-jh8" id="qoU-Ts-FQ1"/>
                         <outlet property="checkoutButton" destination="weI-Pn-MFk" id="koG-qC-2oD"/>
                         <outlet property="checkoutCollectionView" destination="RFN-Vb-IBW" id="wW8-tt-C5M"/>
+                        <outlet property="titleLabel" destination="36S-bz-478" id="9ho-QZ-lEg"/>
                         <outlet property="totalPriceLabel" destination="0I7-Dn-rcx" id="Yvx-ta-KVC"/>
                     </connections>
                 </viewController>
@@ -551,6 +558,7 @@
                                                     </state>
                                                     <connections>
                                                         <action selector="showDetailPressed:" destination="5rP-mR-JS7" eventType="touchUpInside" id="ZZC-vd-LMs"/>
+                                                        <segue destination="Ale-SJ-91z" kind="show" identifier="DetailSegue" id="Tbe-kH-YJN"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -634,6 +642,7 @@
         <image name="icon-plus" width="12" height="12"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="Tbe-kH-YJN"/>
         <segue reference="9Dv-do-o4l"/>
     </inferredMetricsTieBreakers>
 </document>
