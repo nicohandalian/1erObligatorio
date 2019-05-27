@@ -12,6 +12,7 @@ import UIKit
 class DataModelManager {
     static let shared = DataModelManager()
     var trolley = Trolley()
+    var purchase = Trolley()
     
     private init() {
     }
@@ -39,6 +40,10 @@ class DataModelManager {
     
     func getItemTypes()->[ItemType]{
         return [ItemType.diary, ItemType.fruit, ItemType.veggie, ItemType.other]
+    }
+    
+    func setPurchaseToShow(purchase: Trolley){
+        self.purchase = purchase
     }
     
     

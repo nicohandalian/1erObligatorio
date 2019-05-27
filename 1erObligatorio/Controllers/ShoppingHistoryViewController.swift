@@ -32,10 +32,9 @@ class ShoppingHistoryViewController: UIViewController{
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let checkoutViewController = segue.destination as? CheckoutViewController {
             checkoutViewController.readOnly = true
-//            checkoutViewController.setTrolleyToShow(trolley: selectedPurchase!)
+     
         }
     }
-    
     func alterLayout() {
         self.navigationItem.setHidesBackButton(true, animated: false)
         
@@ -112,8 +111,9 @@ extension ShoppingHistoryViewController: UICollectionViewDelegateFlowLayout {
 }
 
 extension ShoppingHistoryViewController: ShoppingHistoryCollectionViewDelegate {
+    
     func showPurchaseDetail(purchase: Trolley) {
-        self.selectedPurchase = purchase
+        DataModelManager.shared.setPurchaseToShow(purchase: purchase)
         performSegue(withIdentifier: "DetailSegue", sender: self)
     }
 }

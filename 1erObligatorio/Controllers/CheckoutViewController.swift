@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 class CheckoutViewController: UIViewController {
+    @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var totalPriceLabel: UILabel!
     @IBOutlet weak var checkoutCollectionView: UICollectionView!
@@ -36,11 +37,12 @@ class CheckoutViewController: UIViewController {
             titleLabel.text! = "Purchase Detail"
             checkoutButton.isHidden = true
             checkoutButton.isEnabled = false
+            self.trolley = DataModelManager.shared.purchase
+            self.updateTotal()
         }
-    }
-    
-    func setTrolleyToShow(trolley: Trolley){
-        self.trolley = trolley
+        else{
+            self.trolley = DataModelManager.shared.getTrolley()
+        }
     }
     
     func updateTotal(){
@@ -64,6 +66,8 @@ class CheckoutViewController: UIViewController {
     
     func blockElementsInView(){
         self.view.backgroundColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+        totalLabel.isHidden = true
+        totalPriceLabel.isHidden = true
         checkoutCollectionView.isHidden = true
         checkoutButton.isHidden = true
         checkoutButton.isEnabled = false
@@ -71,6 +75,7 @@ class CheckoutViewController: UIViewController {
     
     func unblockElementsInView(){
         self.view.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        totalLabel.isHidden = false
         checkoutCollectionView.isHidden = false
         checkoutButton.isHidden = false
         checkoutButton.isEnabled = true
@@ -88,8 +93,8 @@ class CheckoutViewController: UIViewController {
             activityIndicator.startAnimating()
             DataModelManager.shared.postCheckout() { (okMessage, error) in
                 self.activityIndicator.stopAnimating()
-                self.unblockElementsInView()
                 if let error = error {
+                    self.unblockElementsInView()
                     let errorCheckoutAlert = UIAlertController(title: "Failed at checkout", message: error.localizedDescription, preferredStyle: .alert)
                     errorCheckoutAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
                     self.present(errorCheckoutAlert, animated: true, completion: nil)
