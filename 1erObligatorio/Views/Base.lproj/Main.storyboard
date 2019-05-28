@@ -436,16 +436,22 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7wx-X0-HQz">
+                                                    <rect key="frame" x="10" y="7" width="30" height="30"/>
+                                                    <state key="normal" image="icon-home"/>
+                                                </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ex1-ho-hrX">
-                                                    <rect key="frame" x="20" y="10" width="76" height="35"/>
+                                                    <rect key="frame" x="50" y="4.6666666666666679" width="76" height="35"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="29"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="ex1-ho-hrX" firstAttribute="top" secondItem="pCx-dP-wT2" secondAttribute="top" constant="10" id="1H0-xG-7oS"/>
-                                                <constraint firstItem="ex1-ho-hrX" firstAttribute="leading" secondItem="pCx-dP-wT2" secondAttribute="leading" constant="20" id="1qv-3u-SCd"/>
+                                                <constraint firstItem="ex1-ho-hrX" firstAttribute="leading" secondItem="7wx-X0-HQz" secondAttribute="trailing" constant="10" id="OjL-fs-eof"/>
+                                                <constraint firstItem="7wx-X0-HQz" firstAttribute="leading" secondItem="pCx-dP-wT2" secondAttribute="leading" constant="10" id="T5M-xz-egD"/>
+                                                <constraint firstItem="ex1-ho-hrX" firstAttribute="centerY" secondItem="7wx-X0-HQz" secondAttribute="centerY" id="YMO-cH-siG"/>
+                                                <constraint firstItem="7wx-X0-HQz" firstAttribute="centerY" secondItem="pCx-dP-wT2" secondAttribute="centerY" id="cuv-hj-GAC"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ex1-ho-hrX" secondAttribute="trailing" constant="20" symbolic="YES" id="jpd-7j-zQ1"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -461,8 +467,12 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OFJ-kK-pxu">
+                                                    <rect key="frame" x="10" y="7" width="30" height="30"/>
+                                                    <state key="normal" image="icon-history"/>
+                                                </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="History" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AGn-I6-utl">
-                                                    <rect key="frame" x="20" y="10" width="89" height="35"/>
+                                                    <rect key="frame" x="50" y="4.6666666666666679" width="89" height="35"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="29"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -471,9 +481,11 @@
                                             <color key="backgroundColor" red="0.32369780539999998" green="0.1063579395" blue="0.574860394" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <color key="tintColor" red="0.32369780539999998" green="0.1063579395" blue="0.574860394" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
-                                                <constraint firstItem="AGn-I6-utl" firstAttribute="top" secondItem="Me9-0I-kUt" secondAttribute="top" constant="10" id="1hq-16-j2C"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="AGn-I6-utl" secondAttribute="trailing" constant="20" symbolic="YES" id="4xu-kB-vKn"/>
-                                                <constraint firstItem="AGn-I6-utl" firstAttribute="leading" secondItem="Me9-0I-kUt" secondAttribute="leading" constant="20" id="8R7-p2-D0D"/>
+                                                <constraint firstItem="AGn-I6-utl" firstAttribute="leading" secondItem="OFJ-kK-pxu" secondAttribute="trailing" constant="10" id="AoU-Cm-SsY"/>
+                                                <constraint firstItem="OFJ-kK-pxu" firstAttribute="leading" secondItem="Me9-0I-kUt" secondAttribute="leading" constant="10" id="UTI-J4-eXN"/>
+                                                <constraint firstItem="OFJ-kK-pxu" firstAttribute="centerY" secondItem="Me9-0I-kUt" secondAttribute="centerY" id="dwf-46-2mk"/>
+                                                <constraint firstItem="AGn-I6-utl" firstAttribute="centerY" secondItem="OFJ-kK-pxu" secondAttribute="centerY" id="iqg-mj-0XO"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="tintColor" red="0.32369780539999998" green="0.1063579395" blue="0.574860394" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -669,11 +681,13 @@
     </scenes>
     <resources>
         <image name="icon-cart" width="24" height="21"/>
+        <image name="icon-history" width="30" height="30"/>
+        <image name="icon-home" width="30" height="30"/>
         <image name="icon-minus" width="8" height="3"/>
         <image name="icon-plus" width="12" height="12"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="fg2-ti-mBU"/>
+        <segue reference="hOp-Qb-FGy"/>
         <segue reference="9Dv-do-o4l"/>
     </inferredMetricsTieBreakers>
 </document>
