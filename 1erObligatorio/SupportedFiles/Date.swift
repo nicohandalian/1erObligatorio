@@ -13,6 +13,15 @@ extension Date {
         let formatter = DateFormatter()
         formatter.dateStyle = .medium
         formatter.timeStyle = .none
+        formatter.locale = Locale(identifier: "es_UY")
+        return formatter.string(from: self)
+    }
+    
+    func hourToString() -> String {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .none
+        formatter.timeStyle = .short
+        formatter.locale = Locale(identifier: "es_UY")
         return formatter.string(from: self)
     }
     

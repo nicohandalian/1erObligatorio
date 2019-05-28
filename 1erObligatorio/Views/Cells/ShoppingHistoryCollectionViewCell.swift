@@ -15,6 +15,7 @@ protocol ShoppingHistoryCollectionViewDelegate {
 
 class ShoppingHistoryCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var hourLabel: UILabel!
     @IBOutlet weak var totalPriceLabel: UILabel!
     @IBOutlet weak var detailBtn: UIButton!
     
@@ -24,6 +25,7 @@ class ShoppingHistoryCollectionViewCell: UICollectionViewCell {
     func setPurchase(trolley: Trolley){
         purchase = trolley
         dateLabel.text = trolley.date!.toString()
+        hourLabel.text = trolley.date!.hourToString()
         totalPriceLabel.text = "$" + trolley.getTotalPrice().description
     }
     

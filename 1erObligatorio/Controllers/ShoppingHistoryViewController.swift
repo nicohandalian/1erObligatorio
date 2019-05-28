@@ -95,18 +95,11 @@ extension ShoppingHistoryViewController: UICollectionViewDataSource, UICollectio
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
-        for cell in collectionView.visibleCells{
-            cell.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        }
-        let cell = collectionView.cellForItem(at: indexPath)
-        cell?.backgroundColor = #colorLiteral(red: 0.5818830132, green: 0.2156915367, blue: 1, alpha: 0.3781571062)
-    }
 }
 
 extension ShoppingHistoryViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width, height: (collectionView.frame.height/7))
+        return CGSize(width: collectionView.frame.width, height: (collectionView.frame.height/5))
     }
 }
 
