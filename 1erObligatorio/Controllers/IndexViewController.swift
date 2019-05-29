@@ -28,24 +28,17 @@ class IndexViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.setHidesBackButton(true, animated: false)
-        
         alterLayout()
-        
         fetchItems()
         fetchBanners()
         itemsTableView.dataSource = self
         itemsTableView.delegate = self
-        
         searchBar.delegate = self
-        
         bannersCollectionView.dataSource = self
         bannersCollectionView.delegate = self
-        
         itemsTableView.tableHeaderView = searchBar
-        
         setupSideMenu()
-        currentItems = loadAllItemsInSections()
-        
+        currentItems = loadAllItemsInSections()   
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -56,9 +49,7 @@ class IndexViewController: UIViewController{
         activityIndicator.transform = CGAffineTransform(scaleX: 3.5, y: 3.5)
         activityIndicator.color = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         activityIndicator.hidesWhenStopped = true
-        
         itemsTableView.estimatedSectionHeaderHeight = 50
-        
         searchBar.showsScopeBar = false
         searchBar.placeholder = "Search"
     }
@@ -67,7 +58,6 @@ class IndexViewController: UIViewController{
         hideElementsInView()
         activityIndicator.startAnimating()
         APIManager.shared.getItems(){ items, error in
-            
             self.activityIndicator.stopAnimating()
             self.showElementsInView()
             if let error = error {
@@ -75,7 +65,6 @@ class IndexViewController: UIViewController{
                 errorProductAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
                 self.present(errorProductAlert, animated: true, completion: nil)
             }
-            
             if let items = items {
                 self.items = items
                 self.currentItems = self.loadAllItemsInSections()
@@ -88,7 +77,6 @@ class IndexViewController: UIViewController{
         hideElementsInView()
         activityIndicator.startAnimating()
         APIManager.shared.getBanners(){ banners, error in
-            
             self.activityIndicator.stopAnimating()
             self.showElementsInView()
             if let error = error {
@@ -96,7 +84,6 @@ class IndexViewController: UIViewController{
                 errorBannersAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
                 self.present(errorBannersAlert, animated: true, completion: nil)
             }
-            
             if let banners = banners {
                 self.banners = banners
                 self.bannersCollectionView.reloadData()
@@ -125,7 +112,6 @@ class IndexViewController: UIViewController{
     func loadAllItemsInSections() -> [[Item]]{
         var sections:[[Item]] = [[],[],[],[]]
         for item in items{
-            
             switch item.type!
             {
             case .diary:
@@ -147,7 +133,6 @@ class IndexViewController: UIViewController{
     
     fileprivate func setupSideMenu() {
         SideMenuManager.default.menuLeftNavigationController = storyboard!.instantiateViewController(withIdentifier: "LeftMenuNavigationController") as? UISideMenuNavigationController
-        
         SideMenuManager.default.menuAddPanGestureToPresent(toView: self.navigationController!.navigationBar)
         SideMenuManager.default.menuAddScreenEdgePanGesturesToPresent(toView: self.navigationController!.view)
         
@@ -176,12 +161,10 @@ extension IndexViewController: UICollectionViewDelegate, UICollectionViewDataSou
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = bannersCollectionView.dequeueReusableCell(withReuseIdentifier: "BannerCell", for: indexPath) as! BannerCollectionViewCell
-        
         cell.bannerImageView.kf.setImage(with: banners[indexPath.item].imageUrl)
         cell.bannerImageView.setRoundedCorners()
         cell.bannerTitleLabel.text = banners[indexPath.item].title
         cell.bannerDescriptionLabel.text = banners[indexPath.item].description
-        
         return cell
     }
 }
@@ -198,7 +181,6 @@ extension IndexViewController: UIScrollViewDelegate{
 }
 
 extension IndexViewController: UITableViewDataSource, UITableViewDelegate{
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var amount = 0
         for itemsinsection in currentItems {
@@ -253,7 +235,6 @@ extension IndexViewController: UISearchBarDelegate{
             itemsTableView.reloadData()
             return
         }
-        
         for i in 0...loadAllItemsInSections().count-1{
             currentItems[i] = loadAllItemsInSections()[i].filter({item->Bool in
                 return item.name!.lowercased().contains(searchText.lowercased())
@@ -264,7 +245,6 @@ extension IndexViewController: UISearchBarDelegate{
 }
 
 extension IndexViewController: UICollectionViewDelegateFlowLayout{
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.bounds.width - 10, height: collectionView.bounds.height - 10)
     }
@@ -301,6 +281,5 @@ extension IndexViewController: ItemTableViewDelegate{
             return 0
         }
         return quantity
-        
     }
 }

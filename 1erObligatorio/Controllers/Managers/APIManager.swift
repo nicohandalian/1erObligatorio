@@ -12,10 +12,8 @@ import AlamofireObjectMapper
 
 class APIManager {
     static let shared = APIManager()
-    
     let baseUrl = "https://us-central1-ucu-ios-api.cloudfunctions.net/"
   
-    
     func getItems(onCompletionHandler: @escaping(_ result: [Item]?, _ error: Error?) -> Void){
         let itemsUrl = baseUrl + "products"
         Alamofire.request(itemsUrl, method: .get, parameters: nil, encoding: URLEncoding.default, headers: nil).validate().responseArray { (response: DataResponse<[Item]>) in
@@ -26,7 +24,6 @@ class APIManager {
             case .failure(let error):
                 onCompletionHandler(nil, error)
             }
-
         }
     }
     
@@ -36,11 +33,9 @@ class APIManager {
             switch response.result {
             case .success:
                 onCompletionHandler(response.value, nil)
-                
             case .failure(let error):
                 onCompletionHandler(nil, error)
             }
-            
         }
     }
     
@@ -50,12 +45,10 @@ class APIManager {
         AuthenticationManager.shared.authenticate { (authenticationResponse) in
             let bearer = "Bearer " + authenticationResponse.token
             let headers: HTTPHeaders = ["Authorization" : bearer]
-            
             Alamofire.request(purchasesUrl, method: .get, parameters: nil, encoding: URLEncoding.default, headers: headers).validate().responseArray { (response: DataResponse<[Trolley]>) in
                 switch response.result {
                 case .success:
                     onCompletionHandler(response.value, nil)
-                    
                 case .failure(let error):
                     onCompletionHandler(nil, error)
                 }
@@ -68,12 +61,10 @@ class APIManager {
     
     func postCheckout(json: Any, onCompletion: @escaping (String?, Error?) -> Void) {
         let checkoutUrl = baseUrl + "checkout"
-        
         AuthenticationManager.shared.authenticate { (authenticationResponse) in
             let bearer = "Bearer " + authenticationResponse.token
             let headers: HTTPHeaders = ["Authorization" : bearer, "content-type":"application/json"]
             let parameters: [String:Any] = ["cart": json]
-            
             Alamofire.request(checkoutUrl, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).validate().responseString(completionHandler: { (response) in
                 switch response.result {
                 case .success:

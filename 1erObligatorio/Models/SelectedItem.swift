@@ -10,7 +10,6 @@ import Foundation
 import ObjectMapper
 
 class SelectedItem: Mappable {
-    
     var item: Item?
     var quantity: Int?
     

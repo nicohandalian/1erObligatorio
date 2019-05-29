@@ -45,6 +45,4 @@ class DataModelManager {
     func setPurchaseToShow(purchase: Trolley){
         self.purchase = purchase
     }
-    
-    
 }

@@ -23,7 +23,6 @@ class CustomDateTransform: TransformType {
     }
     
     public func transformToJSON(_ value: Object?) -> JSON? {
-        
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZZZ"
         if let date = value {

@@ -26,7 +26,6 @@ class AuthenticationManager {
             response = AuthenticationResponse(token: uuid)
         }
         let delay = arc4random_uniform(1) + 1
-        
         DispatchQueue.main.asyncAfter(deadline: .now() + Double(delay)) {
             onCompletion(response)
         }

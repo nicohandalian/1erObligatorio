@@ -9,7 +9,6 @@
 import UIKit
 
 class CheckoutCollectionViewCell: UICollectionViewCell {
-
     @IBOutlet weak var itemImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var unitsLabel: UILabel!

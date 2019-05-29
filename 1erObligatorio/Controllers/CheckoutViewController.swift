@@ -20,7 +20,7 @@ class CheckoutViewController: UIViewController {
     public var trolley = DataModelManager.shared.getTrolley()
     var toolBar = UIToolbar()
     var picker = UIPickerView()
-    var selectPicker: Int?
+    var selectPicker: Int = 1
     var selectIndexPath:IndexPath?
     var readOnly = false
 
@@ -37,8 +37,8 @@ class CheckoutViewController: UIViewController {
             titleLabel.text! = "Purchase Detail"
             checkoutButton.isHidden = true
             checkoutButton.isEnabled = false
-            self.trolley = DataModelManager.shared.purchase
-            self.updateTotal()
+            trolley = DataModelManager.shared.purchase
+            updateTotal()
         }
         else{
             self.trolley = DataModelManager.shared.getTrolley()
@@ -53,7 +53,6 @@ class CheckoutViewController: UIViewController {
         activityIndicator.transform = CGAffineTransform(scaleX: 3.5, y: 3.5)
         activityIndicator.color = #colorLiteral(red: 0.3236978054, green: 0.1063579395, blue: 0.574860394, alpha: 1)
         activityIndicator.hidesWhenStopped = true
-        
         checkoutButton.layer.cornerRadius = 15
         checkoutButton.layer.borderWidth = 2
         checkoutButton.layer.borderColor = #colorLiteral(red: 0.3236978054, green: 0.1063579395, blue: 0.574860394, alpha: 1)
@@ -61,7 +60,7 @@ class CheckoutViewController: UIViewController {
     
     func indexHandler(alert: UIAlertAction!){
         trolley.clear()
-        self.navigationController?.popViewController(animated: true)
+        navigationController?.popViewController(animated: true)
     }
     
     func blockElementsInView(){
@@ -129,7 +128,7 @@ extension CheckoutViewController: UICollectionViewDataSource, UICollectionViewDe
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if(!readOnly){
-            self.selectIndexPath = indexPath
+            selectIndexPath = indexPath
             
             picker.removeFromSuperview()
             toolBar.removeFromSuperview()
@@ -154,7 +153,7 @@ extension CheckoutViewController: UICollectionViewDataSource, UICollectionViewDe
         toolBar.removeFromSuperview()
         picker.removeFromSuperview()
         let selItem = trolley.toList[selectIndexPath!.row]
-        trolley.modifyItem(id: selItem.item!.id!, quantity: selectPicker!)
+        trolley.modifyItem(id: selItem.item!.id!, quantity: selectPicker)
         checkoutCollectionView.reloadData()
         updateTotal()
     }
@@ -177,11 +176,11 @@ extension CheckoutViewController: UIPickerViewDelegate, UIPickerViewDataSource{
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return String(row+1)
+        return String(row + 1)
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        selectPicker = row+1
+        selectPicker = row + 1
     }
 }
 

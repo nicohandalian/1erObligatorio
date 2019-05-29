@@ -23,6 +23,7 @@ class Banner:Mappable {
             imageUrl = URL(string: stringUrl)
         }
     }
+    
     required init?(map: Map) {
         
     }

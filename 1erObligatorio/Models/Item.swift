@@ -16,7 +16,7 @@ class Item: Mappable {
     var type: ItemType?
     var price: Float?{
         didSet{
-            price = (price!*100).rounded()/100
+            price = (price! * 100).rounded() / 100
         }
     }
     var imageUrl: URL?
@@ -62,5 +62,4 @@ class Item: Mappable {
         price <- map["price"]
         stringUrl <- map["photoUrl"]
     }
-    
 }

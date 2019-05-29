@@ -23,11 +23,9 @@ class ShoppingHistoryViewController: UIViewController{
         super.viewDidLoad()
         shoppingHistoryCollectionView.dataSource = self
         shoppingHistoryCollectionView.delegate = self
-        
         alterLayout()
         fetchPurchases()
     }
-    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let checkoutViewController = segue.destination as? CheckoutViewController {
@@ -35,6 +33,7 @@ class ShoppingHistoryViewController: UIViewController{
      
         }
     }
+    
     func alterLayout() {
         self.navigationItem.setHidesBackButton(true, animated: false)
         
@@ -48,7 +47,6 @@ class ShoppingHistoryViewController: UIViewController{
         hideElementsInView()
         activityIndicator.startAnimating()
         APIManager.shared.getPurchases(){ purchases, error in
-            
             self.activityIndicator.stopAnimating()
             self.showElementsInView()
             if let error = error {
@@ -56,7 +54,6 @@ class ShoppingHistoryViewController: UIViewController{
                 errorPurchaseAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
                 self.present(errorPurchaseAlert, animated: true, completion: nil)
             }
-            
             if let purchases = purchases {
                 self.purchases = purchases
                 self.shoppingHistoryCollectionView.reloadData()
@@ -85,10 +82,8 @@ extension ShoppingHistoryViewController: UICollectionViewDataSource, UICollectio
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         let cell = shoppingHistoryCollectionView.dequeueReusableCell(withReuseIdentifier: "ShoppingHistoryCell", for: indexPath) as! ShoppingHistoryCollectionViewCell
         cell.alterLayout()
-        
         let trolley = purchases[indexPath.row]
         cell.setPurchase(trolley: trolley)
         cell.shoppingHistoryCollectionViewDelegate = self
@@ -104,7 +99,6 @@ extension ShoppingHistoryViewController: UICollectionViewDelegateFlowLayout {
 }
 
 extension ShoppingHistoryViewController: ShoppingHistoryCollectionViewDelegate {
-    
     func showPurchaseDetail(purchase: Trolley) {
         DataModelManager.shared.setPurchaseToShow(purchase: purchase)
         performSegue(withIdentifier: "DetailSegue", sender: self)
