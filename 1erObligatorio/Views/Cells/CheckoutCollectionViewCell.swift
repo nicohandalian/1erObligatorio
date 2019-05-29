@@ -21,7 +21,11 @@ class CheckoutCollectionViewCell: UICollectionViewCell {
         self.itemImageView.kf.setImage(with: selectedItem.item!.imageUrl)
         self.nameLabel.text = selectedItem.item!.name
         self.priceLabel.text = "$" + selectedItem.item!.price!.description
-        self.unitsLabel.text = String(selectedItem.quantity!) + " units"
+        var unitLabelText = String(selectedItem.quantity!) + " unit"
+        if(selectedItem.quantity!>1){
+            unitLabelText += "s"
+        }
+        self.unitsLabel.text = unitLabelText
         alterLayout()
     }
     
