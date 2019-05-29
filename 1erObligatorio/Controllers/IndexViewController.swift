@@ -11,8 +11,6 @@ import UIKit
 import SideMenu
 
 class IndexViewController: UIViewController{
-    
-    
     @IBOutlet weak var bannersCollectionView: UICollectionView!
     @IBOutlet weak var itemsTableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -49,7 +47,9 @@ class IndexViewController: UIViewController{
         activityIndicator.transform = CGAffineTransform(scaleX: 3.5, y: 3.5)
         activityIndicator.color = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         activityIndicator.hidesWhenStopped = true
+        
         itemsTableView.estimatedSectionHeaderHeight = 50
+        
         searchBar.showsScopeBar = false
         searchBar.placeholder = "Search"
     }
@@ -57,14 +57,17 @@ class IndexViewController: UIViewController{
     func fetchItems() {
         hideElementsInView()
         activityIndicator.startAnimating()
+        
         APIManager.shared.getItems(){ items, error in
             self.activityIndicator.stopAnimating()
             self.showElementsInView()
+            
             if let error = error {
                 let errorProductAlert = UIAlertController(title: "Failed loading products", message: error.localizedDescription, preferredStyle: .alert)
                 errorProductAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
                 self.present(errorProductAlert, animated: true, completion: nil)
             }
+            
             if let items = items {
                 self.items = items
                 self.currentItems = self.loadAllItemsInSections()
@@ -76,14 +79,17 @@ class IndexViewController: UIViewController{
     func fetchBanners() {
         hideElementsInView()
         activityIndicator.startAnimating()
+        
         APIManager.shared.getBanners(){ banners, error in
             self.activityIndicator.stopAnimating()
             self.showElementsInView()
+            
             if let error = error {
                 let errorBannersAlert = UIAlertController(title: "Failed loading banners", message: error.localizedDescription, preferredStyle: .alert)
                 errorBannersAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
                 self.present(errorBannersAlert, animated: true, completion: nil)
             }
+            
             if let banners = banners {
                 self.banners = banners
                 self.bannersCollectionView.reloadData()
@@ -133,6 +139,7 @@ class IndexViewController: UIViewController{
     
     fileprivate func setupSideMenu() {
         SideMenuManager.default.menuLeftNavigationController = storyboard!.instantiateViewController(withIdentifier: "LeftMenuNavigationController") as? UISideMenuNavigationController
+        
         SideMenuManager.default.menuAddPanGestureToPresent(toView: self.navigationController!.navigationBar)
         SideMenuManager.default.menuAddScreenEdgePanGesturesToPresent(toView: self.navigationController!.view)
         
@@ -170,7 +177,6 @@ extension IndexViewController: UICollectionViewDelegate, UICollectionViewDataSou
 }
 
 extension IndexViewController: UIScrollViewDelegate{
-    
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         bannerPageControl?.currentPage = Int(scrollView.contentOffset.x) / Int(scrollView.frame.width)
     }

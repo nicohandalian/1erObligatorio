@@ -129,7 +129,6 @@ extension CheckoutViewController: UICollectionViewDataSource, UICollectionViewDe
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if(!readOnly){
             selectIndexPath = indexPath
-            
             picker.removeFromSuperview()
             toolBar.removeFromSuperview()
             picker = UIPickerView.init()
@@ -140,7 +139,6 @@ extension CheckoutViewController: UICollectionViewDataSource, UICollectionViewDe
             picker.contentMode = .center
             picker.frame = CGRect.init(x: 0.0, y: UIScreen.main.bounds.size.height - 300, width: UIScreen.main.bounds.size.width, height: 300)
             self.view.addSubview(picker)
-            
             toolBar = UIToolbar.init(frame: CGRect.init(x: 0.0, y: UIScreen.main.bounds.size.height - 300, width: UIScreen.main.bounds.size.width, height: 50))
             toolBar.barStyle = .default
             toolBar.items = [UIBarButtonItem.init(title: "Done", style: .done, target: self, action: #selector(onDoneButtonTapped))]
@@ -156,6 +154,7 @@ extension CheckoutViewController: UICollectionViewDataSource, UICollectionViewDe
         trolley.modifyItem(id: selItem.item!.id!, quantity: selectPicker)
         checkoutCollectionView.reloadData()
         updateTotal()
+        selectPicker = 1
     }
 }
 
