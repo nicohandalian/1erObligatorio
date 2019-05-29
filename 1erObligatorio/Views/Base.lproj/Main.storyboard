@@ -308,7 +308,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RGt-Eu-xnM">
-                                                    <rect key="frame" x="0.0" y="178" width="177" height="21.666666666666657"/>
+                                                    <rect key="frame" x="0.0" y="178" width="50.333333333333336" height="21.666666666666657"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -336,7 +336,7 @@
                                             <constraint firstItem="RGt-Eu-xnM" firstAttribute="top" secondItem="xQX-vf-Cm8" secondAttribute="bottom" constant="11" id="VvS-gd-QfJ"/>
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="TEz-be-K2M" secondAttribute="trailing" symbolic="YES" id="Xsn-pi-8fB"/>
                                             <constraint firstItem="PTQ-tK-KBQ" firstAttribute="centerY" secondItem="RGt-Eu-xnM" secondAttribute="centerY" id="YL0-Fo-eL3"/>
-                                            <constraint firstItem="RGt-Eu-xnM" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="PTQ-tK-KBQ" secondAttribute="trailing" constant="10" id="ktg-uK-bRG"/>
+                                            <constraint firstItem="RGt-Eu-xnM" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="PTQ-tK-KBQ" secondAttribute="leading" constant="10" id="ktg-uK-bRG"/>
                                             <constraint firstItem="TEz-be-K2M" firstAttribute="top" secondItem="RGt-Eu-xnM" secondAttribute="bottom" constant="3" id="nfV-ke-QMK"/>
                                             <constraint firstItem="PTQ-tK-KBQ" firstAttribute="trailing" secondItem="xQX-vf-Cm8" secondAttribute="trailing" id="tfE-8e-Ilm"/>
                                             <constraint firstItem="xQX-vf-Cm8" firstAttribute="top" secondItem="lJz-SD-SUY" secondAttribute="top" id="yyZ-Lz-Egi"/>
