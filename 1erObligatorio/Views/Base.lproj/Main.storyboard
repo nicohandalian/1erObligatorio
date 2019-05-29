@@ -615,7 +615,7 @@
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="R1a-pB-je0" secondAttribute="trailing" constant="24" id="SWd-aI-Kdi"/>
                                             <constraint firstItem="ZB5-Da-XHA" firstAttribute="width" secondItem="5rP-mR-JS7" secondAttribute="width" multiplier="1:4" id="XBm-fB-bwg"/>
                                             <constraint firstItem="R1a-pB-je0" firstAttribute="centerY" secondItem="vgG-e5-xh3" secondAttribute="centerY" id="hSf-nM-iNs"/>
-                                            <constraint firstItem="FZU-FB-8hc" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="ZB5-Da-XHA" secondAttribute="leading" constant="10" id="mMk-IZ-yft"/>
+                                            <constraint firstItem="FZU-FB-8hc" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="5rP-mR-JS7" secondAttribute="trailing" id="mMk-IZ-yft"/>
                                             <constraint firstItem="ZB5-Da-XHA" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="5rP-mR-JS7" secondAttribute="leading" symbolic="YES" id="pMm-AG-kgO"/>
                                             <constraint firstItem="vgG-e5-xh3" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="5rP-mR-JS7" secondAttribute="leading" constant="10" id="uCL-V5-I10"/>
                                             <constraint firstItem="hZ1-Dk-yKB" firstAttribute="top" secondItem="5rP-mR-JS7" secondAttribute="top" constant="20" id="w3s-XT-ayx"/>
@@ -687,7 +687,7 @@
         <image name="icon-plus" width="12" height="12"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="hOp-Qb-FGy"/>
+        <segue reference="fg2-ti-mBU"/>
         <segue reference="9Dv-do-o4l"/>
     </inferredMetricsTieBreakers>
 </document>
