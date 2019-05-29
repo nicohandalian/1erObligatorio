@@ -55,7 +55,7 @@ class ShoppingHistoryViewController: UIViewController{
                 self.present(errorPurchaseAlert, animated: true, completion: nil)
             }
             if let purchases = purchases {
-                self.purchases = purchases
+                self.purchases = purchases.sorted(by: { $0.date! > $1.date! })
                 self.shoppingHistoryCollectionView.reloadData()
             }
         }
