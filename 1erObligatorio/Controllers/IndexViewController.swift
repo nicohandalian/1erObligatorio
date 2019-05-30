@@ -107,7 +107,7 @@ class IndexViewController: UIViewController{
     }
     
     func hideElementsInView() {
-        self.view.backgroundColor = #colorLiteral(red: 0.3236978054, green: 0.1063579395, blue: 0.574860394, alpha: 1)
+        self.view.backgroundColor = #colorLiteral(red: 0.5818830132, green: 0.2156915367, blue: 1, alpha: 1)
         bannersCollectionView.isHidden = true
         itemsTableView.isHidden = true
         searchBar.isHidden = true

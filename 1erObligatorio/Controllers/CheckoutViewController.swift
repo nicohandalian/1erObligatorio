@@ -51,11 +51,11 @@ class CheckoutViewController: UIViewController {
     
     func alterLayout(){
         activityIndicator.transform = CGAffineTransform(scaleX: 3.5, y: 3.5)
-        activityIndicator.color = #colorLiteral(red: 0.3236978054, green: 0.1063579395, blue: 0.574860394, alpha: 1)
+        activityIndicator.color = #colorLiteral(red: 0.5818830132, green: 0.2156915367, blue: 1, alpha: 1)
         activityIndicator.hidesWhenStopped = true
         checkoutButton.layer.cornerRadius = 15
         checkoutButton.layer.borderWidth = 2
-        checkoutButton.layer.borderColor = #colorLiteral(red: 0.3236978054, green: 0.1063579395, blue: 0.574860394, alpha: 1)
+        checkoutButton.layer.borderColor = #colorLiteral(red: 0.5818830132, green: 0.2156915367, blue: 1, alpha: 1)
     }
     
     func indexHandler(alert: UIAlertAction!){
@@ -75,10 +75,10 @@ class CheckoutViewController: UIViewController {
     func unblockElementsInView(){
         self.view.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         totalLabel.isHidden = false
+        totalPriceLabel.isHidden = false
         checkoutCollectionView.isHidden = false
         checkoutButton.isHidden = false
         checkoutButton.isEnabled = true
-        
     }
     
     @IBAction func checkoutButtonPressed(_ sender: Any) {

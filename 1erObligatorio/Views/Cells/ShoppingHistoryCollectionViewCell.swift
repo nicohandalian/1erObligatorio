@@ -30,13 +30,13 @@ class ShoppingHistoryCollectionViewCell: UICollectionViewCell {
     }
     
     func alterLayout(){
-        self.layer.borderColor = #colorLiteral(red: 0.3236978054, green: 0.1063579395, blue: 0.574860394, alpha: 1)
+        self.layer.borderColor = #colorLiteral(red: 0.5818830132, green: 0.2156915367, blue: 1, alpha: 1)
         self.layer.borderWidth = 1
         self.layer.cornerRadius = 8
         
         detailBtn.layer.cornerRadius = 15
         detailBtn.layer.borderWidth = 2
-        detailBtn.layer.borderColor = #colorLiteral(red: 0.3236978054, green: 0.1063579395, blue: 0.574860394, alpha: 1)
+        detailBtn.layer.borderColor = #colorLiteral(red: 0.5818830132, green: 0.2156915367, blue: 1, alpha: 1)
         
     }
     
